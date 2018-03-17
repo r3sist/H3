@@ -1,0 +1,20 @@
+{
+  "name": "resist/h3",
+  "description": "Simple helper methods for Fatfree Framework powered apps",
+  "homepage": "https://resist.hu",
+  "license": "CDDL-1.0",
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://bitbucket.org/resist/h3.git"
+    }
+  ],
+  "autoload": {
+    "files": ["H3.php"]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
