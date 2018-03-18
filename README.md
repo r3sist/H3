@@ -13,9 +13,15 @@ codacy badge here
  
 `\H3::gen($length)` returns random generated key
  
-`\H3::clean($string)` returns *slug*
+`\H3::clean($string, $postProcess = 'strict')` returns *slug*, prostProcess: 'strict', 'light', 'dangerous', 'none'
  
 `\H3::dump($var)` echos $var in <pre>
+
+`\H3::shorten($string, $length)` returns shortened string 
+
+`\H3::keyUp($array, $key)` move selected element up in array by key 
+
+`\H3::keyDown($array, $key)` move selected element down in array by key 
 
 ## Installation
 
