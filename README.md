@@ -23,6 +23,8 @@ codacy badge here
 
 `\H3::keyDown($array, $key)` move selected element down in array by key 
 
+`\H3::getJson($url)` request URL from any Json API, returns response array() or error text
+
 ## Installation
 
 Via composer: `"resist/H3": "dev-master"`

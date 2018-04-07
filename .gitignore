@@ -1,6 +1,6 @@
 .git/
 .idea/
-_dev/
+.dev/
 vendor/
 tmp/
 _ignore.php

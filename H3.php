@@ -120,4 +120,24 @@ class H3
             return $a;
         }
     }
+    
+    public static function getJson($url)
+    {
+        if (\Audit::instance()->url($url) != true) {
+            throw new \Exception('getJson error - not valid url: '.$url);
+        }
+
+        $response = \Web::instance()->request($url);
+
+        if ($response['error']) {
+            throw new \Exception('Error: '.$response['error'].' '.$url);
+        }
+
+        $data = json_decode($response['body'], true);
+        if (is_null($data)) {
+            throw new \Exception('Response not valid JSON data');
+        }
+
+        return $data;
+    }
 }
