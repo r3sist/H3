@@ -4,7 +4,8 @@
   "homepage": "https://resist.hu",
   "license": "CDDL-1.0",
   "require": {
-    "php": ">=5.6.0"
+    "php": ">=5.6.0",
+    "bcosca/fatfree": "3.*"
   },
   "autoload": {
     "files": ["H3.php"]
