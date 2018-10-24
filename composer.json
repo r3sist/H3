@@ -5,7 +5,7 @@
   "license": "CDDL-1.0",
   "require": {
     "php": ">=5.6.0",
-    "bcosca/fatfree": "3.*"
+    "bcosca/fatfree-core": "3.6.*"
   },
   "autoload": {
     "files": ["H3.php"]
