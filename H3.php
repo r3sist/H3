@@ -88,26 +88,26 @@ class H3
 
     public static function n0($number)
     {
-        return number_format($number, 0, '.', ' ');
+        return number_format($number, 0, '.', '');
     }
 
     public static function n1($number)
     {
-        return number_format($number, 1, '.', ' ');
+        return number_format($number, 1, '.', '');
     }
 
     public static function n2($number)
     {
-        return number_format($number, 2, '.', ' ');
+        return number_format($number, 2, '.', '');
     }
 
     public static function n3($number)
     {
-        return number_format($number, 3, '.', ' ');
+        return number_format($number, 3, '.', '');
     }
 
     public static function n4($number)
     {
-        return number_format($number, 4, '.', ' ');
+        return number_format($number, 4, '.', '');
     }
 }
