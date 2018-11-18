@@ -13,7 +13,7 @@ class H3
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $key = '';
          for ($p = 0; $p < $length; $p++) {
-            $key .= $characters[mt_rand(0, strlen($characters))];
+            $key .= $characters[mt_rand(0, strlen($characters) - 1)];
          }
          return $key;
     }
