@@ -3,12 +3,12 @@
 class H3
 {
 
-    public static function render($layout)
+    public static function render(string $layout): void
     {
         echo \Template::instance()->render($layout.'.html');
     }
     
-    public static function gen($length)
+    public static function gen(int $length): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $key = '';
@@ -18,7 +18,7 @@ class H3
          return $key;
     }
     
-    public static function clean($string, $validation = 'strict')
+    public static function clean(string $string, string $validation = 'strict'): string
     {
         return \V3::clean($string, $validation);
     }
@@ -30,7 +30,7 @@ class H3
         echo '</pre>';
     }
 
-    public static function shorten($string, $length)
+    public static function shorten(string $string, int $length): string
     {
         $f3 = \Base::instance();
         if (strlen ($string) > 0) {
@@ -66,7 +66,7 @@ class H3
         }
     }
     
-    public static function getJson($url)
+    public static function getJson(string $url): array
     {
         if (\Audit::instance()->url($url) != true) {
             throw new \Exception('getJson error - not valid url: '.$url);
@@ -86,27 +86,27 @@ class H3
         return $data;
     }
 
-    public static function n0($number)
+    public static function n0(float $number): float
     {
         return number_format($number, 0, '.', '');
     }
 
-    public static function n1($number)
+    public static function n1(float $number): float
     {
         return number_format($number, 1, '.', '');
     }
 
-    public static function n2($number)
+    public static function n2(float $number): float
     {
         return number_format($number, 2, '.', '');
     }
 
-    public static function n3($number)
+    public static function n3(float $number): float
     {
         return number_format($number, 3, '.', '');
     }
 
-    public static function n4($number)
+    public static function n4(float $number): float
     {
         return number_format($number, 4, '.', '');
     }
