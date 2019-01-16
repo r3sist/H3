@@ -114,7 +114,7 @@ class H3
     /*
      * Returns converted md; HTML in input is cleaned; output is filtered by allowed tags
      */
-    public static function makeMdStrict(float $string, $allowedTags = 'i,em,b,strong,a,code'): string
+    public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
     {
         $f3 = \Base::instance();
         $string = $f3->clean($string, 'br');
@@ -126,7 +126,7 @@ class H3
     /*
      * Returns converted md; HTML in input is cleaned
      */
-    public static function makeMdLight(float $string): string
+    public static function makeMdLight(string $string): string
     {
         $f3 = \Base::instance();
         $string = $f3->clean($string, 'br');
@@ -134,7 +134,7 @@ class H3
         return $md;
     }
 
-    public static function makeMd(float $string): string
+    public static function makeMd(string $string): string
     {
         $md = \Markdown::instance()->convert($string);
         return $md;
