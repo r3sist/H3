@@ -110,4 +110,27 @@ class H3
     {
         return number_format($number, 4, '.', '');
     }
+
+    public static function makeMdStrict(float $string, $allowedTags = 'i,em,b,strong,a,code'): string
+    {
+        $f3 = \Base::instance();
+        $string = $f3->clean($string, 'br');
+        $md = \Markdown::instance()->convert($string);
+        $cleaned = $f3->clean($md, $allowedTags);
+        return $cleaned;
+    }
+
+    public static function makeMdLight(float $string): string
+    {
+        $f3 = \Base::instance();
+        $string = $f3->clean($string, 'br');
+        $md = \Markdown::instance()->convert($string);
+        return $md;
+    }
+
+    public static function makeMd(float $string): string
+    {
+        $md = \Markdown::instance()->convert($string);
+        return $md;
+    }
 }
