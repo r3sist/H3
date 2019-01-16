@@ -111,6 +111,9 @@ class H3
         return number_format($number, 4, '.', '');
     }
 
+    /*
+     * Returns converted md; HTML in input is cleaned; output is filtered by allowed tags
+     */
     public static function makeMdStrict(float $string, $allowedTags = 'i,em,b,strong,a,code'): string
     {
         $f3 = \Base::instance();
@@ -120,6 +123,9 @@ class H3
         return $cleaned;
     }
 
+    /*
+     * Returns converted md; HTML in input is cleaned
+     */
     public static function makeMdLight(float $string): string
     {
         $f3 = \Base::instance();
