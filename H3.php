@@ -3,6 +3,7 @@
 class H3
 {
 
+    /** @var $f3 \Base */
     public static function render(string $layout): void
     {
         echo \Template::instance()->render($layout.'.html');
