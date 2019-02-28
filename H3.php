@@ -141,10 +141,12 @@ class H3
         return $md;
     }
 
-    public static function test($testObject)
+    /** @var $testObject \Test */
+    public static function test($testObject, string $title = ''): string
     {
+        echo "\n$title test results\n".str_repeat('=', 100)."\n";
         foreach ($testObject->results() as $result) {
-            echo str_pad($result['text'].' ', 50);
+            echo str_pad($result['text'].' ', 73);
             if ($result['status']) {
                 echo str_pad("\033[32mPASSED\e[0m", 7);
             } else {
@@ -152,5 +154,7 @@ class H3
             }
             echo "\n";
         }
+        echo str_repeat('-', 100)."\n".($testObject->passed()?"\033[32mPASSED\e[0m":"\033[31mFAILED\e[0m")."\n";
+        return true;
     }
 }
