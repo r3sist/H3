@@ -140,4 +140,17 @@ class H3
         $md = \Markdown::instance()->convert($string);
         return $md;
     }
+
+    public static function test($testObject)
+    {
+        foreach ($testObject->results() as $result) {
+            echo str_pad($result['text'].' ', 50);
+            if ($result['status']) {
+                echo str_pad("\033[32mPASSED\e[0m", 7);
+            } else {
+                echo str_pad("\033[31mFAILED\e[0m", 7);
+            }
+            echo "\n";
+        }
+    }
 }
