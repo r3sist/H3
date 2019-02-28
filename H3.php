@@ -3,7 +3,6 @@
 class H3
 {
 
-    /** @var $f3 \Base */
     public static function render(string $layout): void
     {
         echo \Template::instance()->render($layout.'.html');
@@ -146,7 +145,7 @@ class H3
     {
         echo "\n$title test results\n".str_repeat('=', 100)."\n";
         foreach ($testObject->results() as $result) {
-            echo str_pad($result['text'].' ', 73);
+            echo str_pad($result['text'].' ', 93);
             if ($result['status']) {
                 echo str_pad("\033[32mPASSED\e[0m", 7);
             } else {
