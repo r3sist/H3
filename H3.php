@@ -5,7 +5,7 @@ class H3
 
     public static function render(string $layout): void
     {
-        echo \Template::instance()->render($layout.'.html');
+        echo \Template::instance()->render(\V3::clean($layout, 'path').'.html');
     }
     
     public static function gen(int $length): string
@@ -18,9 +18,9 @@ class H3
          return $key;
     }
     
-    public static function clean(string $string, string $validation = 'strict'): string
+    public static function clean($string, $pattern = '', $replacement = ''): string
     {
-        return \V3::clean($string, $validation);
+        return \V3::clean($string, $pattern, $replacement);
     }
 
     public static function dump($var)
@@ -86,9 +86,9 @@ class H3
         return $data;
     }
 
-    public static function n0(float $number): float
+    public static function n0(float $number): int
     {
-        return number_format($number, 0, '.', '');
+        return (int)number_format($number, 0, '.', '');
     }
 
     public static function n1(float $number): float
@@ -141,7 +141,7 @@ class H3
     }
 
     /** @var $testObject \Test */
-    public static function test($testObject, string $title = ''): string
+    public static function test($testObject, string $title = ''): void
     {
         echo "\n$title test results\n".str_repeat('=', 100)."\n";
         foreach ($testObject->results() as $result) {
@@ -154,6 +154,12 @@ class H3
             echo "\n";
         }
         echo str_repeat('-', 100)."\n".($testObject->passed()?"\033[32mPASSED\e[0m":"\033[31mFAILED\e[0m")."\n";
-        return true;
+    }
+
+    public static function testMissing(string $text): void
+    {
+        echo str_pad($text.' ', 93);
+        echo str_pad("\033[31mMISSING\e[0m", 7);
+        echo "\n";
     }
 }
