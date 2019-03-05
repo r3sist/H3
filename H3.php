@@ -150,6 +150,7 @@ class H3
                 echo str_pad("\033[32mPASSED\e[0m", 7);
             } else {
                 echo str_pad("\033[31mFAILED\e[0m", 7);
+                echo "\n\t".$result['source'];
             }
             echo "\n";
         }
