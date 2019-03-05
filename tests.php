@@ -12,6 +12,7 @@ $test->expect(is_callable("\Template::render") == true, 'is_callable("\Template:
 
 $test->expect(is_callable("H3::gen") == true, 'is_callable("H3::gen")');
 $test->expect(strlen(H3::gen(2)) === 2, 'strlen(H3::gen(2)) === 2');
+$test->expect(H3::gen(50) != H3::gen(50), 'H3::gen(50) != H3::gen(50)');
 
 $test->expect(is_callable("H3::clean") == true, 'is_callable("H3::clean")');
 $test->expect(is_callable("\V3::clean") == true, 'is_callable("\V3::clean")');
