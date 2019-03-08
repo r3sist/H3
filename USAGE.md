@@ -2,6 +2,8 @@
 
 > Public methods of *\H3*
 
+[TOC]
+
 ### render()
 
 > 
@@ -15,6 +17,7 @@ public static function render(string $layout): void
 string $layout
 ```
 
+---
 ### gen()
 
 > 
@@ -32,6 +35,7 @@ int $length
 string
 ```
 
+---
 ### clean()
 
 > 
@@ -57,6 +61,7 @@ string $replacement
 string
 ```
 
+---
 ### dump()
 
 > 
@@ -70,6 +75,7 @@ public static function dump($var)
 $var
 ```
 
+---
 ### shorten()
 
 > 
@@ -91,6 +97,7 @@ int $length
 string
 ```
 
+---
 ### keyDown()
 
 > 
@@ -112,6 +119,7 @@ $x
 array
 ```
 
+---
 ### keyUp()
 
 > 
@@ -133,6 +141,7 @@ $x
 array
 ```
 
+---
 ### getJson()
 
 > 
@@ -154,6 +163,7 @@ array
 Exception
 ```
 
+---
 ### n0()
 
 > 
@@ -171,6 +181,7 @@ float $number
 int
 ```
 
+---
 ### n1()
 
 > 
@@ -188,6 +199,7 @@ float $number
 float
 ```
 
+---
 ### n2()
 
 > 
@@ -205,6 +217,7 @@ float $number
 float
 ```
 
+---
 ### n3()
 
 > 
@@ -222,6 +235,7 @@ float $number
 float
 ```
 
+---
 ### n4()
 
 > 
@@ -239,6 +253,7 @@ float $number
 float
 ```
 
+---
 ### makeMdStrict()
 
 > 
@@ -260,6 +275,7 @@ string $allowedTags Comma separated list of allowed tags
 string Cleaned and converted output string
 ```
 
+---
 ### makeMdLight()
 
 > 
@@ -277,6 +293,7 @@ string $string
 string
 ```
 
+---
 ### makeMd()
 
 > 
@@ -294,6 +311,7 @@ string $string
 string
 ```
 
+---
 ### test()
 
 > Renders Fatfree Framework test object
@@ -315,6 +333,7 @@ string $title Title of test
 void
 ```
 
+---
 ### testMissing()
 
 > 
@@ -328,6 +347,7 @@ public static function testMissing(string $text): void
 string $text
 ```
 
+---
 ### documentClass()
 
 > Generates markdown documentation of specific class based on dockblocks
@@ -345,3 +365,4 @@ string $className Generate documentation for
 ReflectionException
 ```
 
+---
