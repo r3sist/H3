@@ -7,379 +7,355 @@
 > 
 
 ```php
-<?php
 public static function render(string $layout): void
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $layout
 ```
-
+ |
 ---
 ### gen()
 
 > 
 
 ```php
-<?php
 public static function gen(int $length): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 int $length
 ```
-**return**:  
-```php
+ || return | ```php
 string
 ```
-
+ |
 ---
 ### clean()
 
 > 
 
 ```php
-<?php
 public static function clean($string, $pattern = '', $replacement = ''): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 $string
 ```
-**param**:  
-```php
+ || param | ```php
 string $pattern
 ```
-**param**:  
-```php
+ || param | ```php
 string $replacement
 ```
-**return**:  
-```php
+ || return | ```php
 string
 ```
-
+ |
 ---
 ### dump()
 
 > 
 
 ```php
-<?php
 public static function dump($var)
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 $var
 ```
-
+ |
 ---
 ### shorten()
 
 > 
 
 ```php
-<?php
 public static function shorten(string $string, int $length): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $string
 ```
-**param**:  
-```php
+ || param | ```php
 int $length
 ```
-**return**:  
-```php
+ || return | ```php
 string
 ```
-
+ |
 ---
 ### keyDown()
 
 > 
 
 ```php
-<?php
 public static function keyDown($a, $x) {
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 $a
 ```
-**param**:  
-```php
+ || param | ```php
 $x
 ```
-**return**:  
-```php
+ || return | ```php
 array
 ```
-
+ |
 ---
 ### keyUp()
 
 > 
 
 ```php
-<?php
 public static function keyUp($a, $x) {
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 $a
 ```
-**param**:  
-```php
+ || param | ```php
 $x
 ```
-**return**:  
-```php
+ || return | ```php
 array
 ```
-
+ |
 ---
 ### getJson()
 
 > 
 
 ```php
-<?php
 public static function getJson(string $url): array
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $url
 ```
-**return**:  
-```php
+ || return | ```php
 array
 ```
-**throws**:  
-```php
+ || throws | ```php
 Exception
 ```
-
+ |
 ---
 ### n0()
 
 > 
 
 ```php
-<?php
 public static function n0(float $number): int
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 float $number
 ```
-**return**:  
-```php
+ || return | ```php
 int
 ```
-
+ |
 ---
 ### n1()
 
 > 
 
 ```php
-<?php
 public static function n1(float $number): float
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 float $number
 ```
-**return**:  
-```php
+ || return | ```php
 float
 ```
-
+ |
 ---
 ### n2()
 
 > 
 
 ```php
-<?php
 public static function n2(float $number): float
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 float $number
 ```
-**return**:  
-```php
+ || return | ```php
 float
 ```
-
+ |
 ---
 ### n3()
 
 > 
 
 ```php
-<?php
 public static function n3(float $number): float
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 float $number
 ```
-**return**:  
-```php
+ || return | ```php
 float
 ```
-
+ |
 ---
 ### n4()
 
 > 
 
 ```php
-<?php
 public static function n4(float $number): float
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 float $number
 ```
-**return**:  
-```php
+ || return | ```php
 float
 ```
-
+ |
 ---
 ### makeMdStrict()
 
 > 
 
 ```php
-<?php
 public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $string Input
 ```
-**param**:  
-```php
+ || param | ```php
 string $allowedTags // Comma separated list of allowed tags
 ```
-**return**:  
-```php
+ || return | ```php
 string // Cleaned and converted output string
 ```
-
+ |
 ---
 ### makeMdLight()
 
 > 
 
 ```php
-<?php
 public static function makeMdLight(string $string): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $string
 ```
-**return**:  
-```php
+ || return | ```php
 string
 ```
-
+ |
 ---
 ### makeMd()
 
 > 
 
 ```php
-<?php
 public static function makeMd(string $string): string
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $string
 ```
-**return**:  
-```php
+ || return | ```php
 string
 ```
-
+ |
 ---
 ### test()
 
 > Renders Fatfree Framework test object
 
 ```php
-<?php
 public static function test($testObject, string $title = ''): void
 ```
 
-**var**:  
-```php
+| tag | code |
+| --- | --- |
+| var | ```php
 $testObject \Test
 ```
-**param**:  
-```php
+ || param | ```php
 string $title // Title of test
 ```
-**return**:  
-```php
+ || return | ```php
 void
 ```
-
+ |
 ---
 ### testMissing()
 
 > 
 
 ```php
-<?php
 public static function testMissing(string $text): void
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $text
 ```
-
+ |
 ---
 ### documentClass()
 
 > Generates markdown documentation of specific class based on dockblocks
 
 ```php
-<?php
 public static function documentClass($className, $title = 'Usage')
 ```
 
-**param**:  
-```php
+| tag | code |
+| --- | --- |
+| param | ```php
 string $className // Generate documentation for
 ```
-**throws**:  
-```php
+ || throws | ```php
 ReflectionException
 ```
-
+ |
 ---
