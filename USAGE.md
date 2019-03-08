@@ -10,12 +10,11 @@
 public static function render(string $layout): void
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $layout
 ```
- |
+
 ---
 ### gen()
 
@@ -25,15 +24,15 @@ string $layout
 public static function gen(int $length): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 int $length
 ```
- || return | ```php
+*return*:  
+```php
 string
 ```
- |
+
 ---
 ### clean()
 
@@ -43,21 +42,23 @@ string
 public static function clean($string, $pattern = '', $replacement = ''): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 $string
 ```
- || param | ```php
+*param*:  
+```php
 string $pattern
 ```
- || param | ```php
+*param*:  
+```php
 string $replacement
 ```
- || return | ```php
+*return*:  
+```php
 string
 ```
- |
+
 ---
 ### dump()
 
@@ -67,12 +68,11 @@ string
 public static function dump($var)
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 $var
 ```
- |
+
 ---
 ### shorten()
 
@@ -82,18 +82,19 @@ $var
 public static function shorten(string $string, int $length): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $string
 ```
- || param | ```php
+*param*:  
+```php
 int $length
 ```
- || return | ```php
+*return*:  
+```php
 string
 ```
- |
+
 ---
 ### keyDown()
 
@@ -103,18 +104,19 @@ string
 public static function keyDown($a, $x) {
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 $a
 ```
- || param | ```php
+*param*:  
+```php
 $x
 ```
- || return | ```php
+*return*:  
+```php
 array
 ```
- |
+
 ---
 ### keyUp()
 
@@ -124,18 +126,19 @@ array
 public static function keyUp($a, $x) {
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 $a
 ```
- || param | ```php
+*param*:  
+```php
 $x
 ```
- || return | ```php
+*return*:  
+```php
 array
 ```
- |
+
 ---
 ### getJson()
 
@@ -145,18 +148,19 @@ array
 public static function getJson(string $url): array
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $url
 ```
- || return | ```php
+*return*:  
+```php
 array
 ```
- || throws | ```php
+*throws*:  
+```php
 Exception
 ```
- |
+
 ---
 ### n0()
 
@@ -166,15 +170,15 @@ Exception
 public static function n0(float $number): int
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 float $number
 ```
- || return | ```php
+*return*:  
+```php
 int
 ```
- |
+
 ---
 ### n1()
 
@@ -184,15 +188,15 @@ int
 public static function n1(float $number): float
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 float $number
 ```
- || return | ```php
+*return*:  
+```php
 float
 ```
- |
+
 ---
 ### n2()
 
@@ -202,15 +206,15 @@ float
 public static function n2(float $number): float
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 float $number
 ```
- || return | ```php
+*return*:  
+```php
 float
 ```
- |
+
 ---
 ### n3()
 
@@ -220,15 +224,15 @@ float
 public static function n3(float $number): float
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 float $number
 ```
- || return | ```php
+*return*:  
+```php
 float
 ```
- |
+
 ---
 ### n4()
 
@@ -238,15 +242,15 @@ float
 public static function n4(float $number): float
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 float $number
 ```
- || return | ```php
+*return*:  
+```php
 float
 ```
- |
+
 ---
 ### makeMdStrict()
 
@@ -256,18 +260,19 @@ float
 public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $string Input
 ```
- || param | ```php
+*param*:  
+```php
 string $allowedTags // Comma separated list of allowed tags
 ```
- || return | ```php
+*return*:  
+```php
 string // Cleaned and converted output string
 ```
- |
+
 ---
 ### makeMdLight()
 
@@ -277,15 +282,15 @@ string // Cleaned and converted output string
 public static function makeMdLight(string $string): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $string
 ```
- || return | ```php
+*return*:  
+```php
 string
 ```
- |
+
 ---
 ### makeMd()
 
@@ -295,15 +300,15 @@ string
 public static function makeMd(string $string): string
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $string
 ```
- || return | ```php
+*return*:  
+```php
 string
 ```
- |
+
 ---
 ### test()
 
@@ -313,18 +318,19 @@ string
 public static function test($testObject, string $title = ''): void
 ```
 
-| tag | code |
-| --- | --- |
-| var | ```php
+*var*:  
+```php
 $testObject \Test
 ```
- || param | ```php
+*param*:  
+```php
 string $title // Title of test
 ```
- || return | ```php
+*return*:  
+```php
 void
 ```
- |
+
 ---
 ### testMissing()
 
@@ -334,12 +340,11 @@ void
 public static function testMissing(string $text): void
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $text
 ```
- |
+
 ---
 ### documentClass()
 
@@ -349,13 +354,13 @@ string $text
 public static function documentClass($className, $title = 'Usage')
 ```
 
-| tag | code |
-| --- | --- |
-| param | ```php
+*param*:  
+```php
 string $className // Generate documentation for
 ```
- || throws | ```php
+*throws*:  
+```php
 ReflectionException
 ```
- |
+
 ---
