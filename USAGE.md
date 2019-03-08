@@ -268,11 +268,11 @@ string $string Input
 ```
 **param**:  
 ```php
-string $allowedTags Comma separated list of allowed tags
+string $allowedTags // Comma separated list of allowed tags
 ```
 **return**:  
 ```php
-string Cleaned and converted output string
+string // Cleaned and converted output string
 ```
 
 ---
@@ -326,7 +326,7 @@ $testObject \Test
 ```
 **param**:  
 ```php
-string $title Title of test
+string $title // Title of test
 ```
 **return**:  
 ```php
@@ -358,7 +358,7 @@ public static function documentClass($className, $title = 'Usage')
 
 **param**:  
 ```php
-string $className Generate documentation for
+string $className // Generate documentation for
 ```
 **throws**:  
 ```php
