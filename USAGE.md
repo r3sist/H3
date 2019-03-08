@@ -1,4 +1,4 @@
-##Usage
+## Usage
 
 > Public methods of *\H3*
 
@@ -10,7 +10,10 @@
 public static function render(string $layout): void
 ```
 
-+ **param**: `string $layout`
+**param**:  
+```php
+string $layout
+```
 
 ### gen()
 
@@ -20,8 +23,14 @@ public static function render(string $layout): void
 public static function gen(int $length): string
 ```
 
-+ **param**: `int $length`
-+ **return**: `string`
+**param**:  
+```php
+int $length
+```
+**return**:  
+```php
+string
+```
 
 ### clean()
 
@@ -31,10 +40,22 @@ public static function gen(int $length): string
 public static function clean($string, $pattern = '', $replacement = ''): string
 ```
 
-+ **param**: `$string ****`
-+ **param**: `string **$pattern**`
-+ **param**: `string **$replacement**`
-+ **return**: `string`
+**param**:  
+```php
+$string
+```
+**param**:  
+```php
+string $pattern
+```
+**param**:  
+```php
+string $replacement
+```
+**return**:  
+```php
+string
+```
 
 ### dump()
 
@@ -44,7 +65,10 @@ public static function clean($string, $pattern = '', $replacement = ''): string
 public static function dump($var)
 ```
 
-+ **param**: `$var`
+**param**:  
+```php
+$var
+```
 
 ### shorten()
 
@@ -54,9 +78,18 @@ public static function dump($var)
 public static function shorten(string $string, int $length): string
 ```
 
-+ **param**: `string **$string**`
-+ **param**: `int **$length**`
-+ **return**: `string`
+**param**:  
+```php
+string $string
+```
+**param**:  
+```php
+int $length
+```
+**return**:  
+```php
+string
+```
 
 ### keyDown()
 
@@ -66,9 +99,18 @@ public static function shorten(string $string, int $length): string
 public static function keyDown($a, $x) {
 ```
 
-+ **param**: `$a ****`
-+ **param**: `$x ****`
-+ **return**: `array`
+**param**:  
+```php
+$a
+```
+**param**:  
+```php
+$x
+```
+**return**:  
+```php
+array
+```
 
 ### keyUp()
 
@@ -78,9 +120,18 @@ public static function keyDown($a, $x) {
 public static function keyUp($a, $x) {
 ```
 
-+ **param**: `$a ****`
-+ **param**: `$x ****`
-+ **return**: `array`
+**param**:  
+```php
+$a
+```
+**param**:  
+```php
+$x
+```
+**return**:  
+```php
+array
+```
 
 ### getJson()
 
@@ -90,9 +141,18 @@ public static function keyUp($a, $x) {
 public static function getJson(string $url): array
 ```
 
-+ **param**: `string $url`
-+ **return**: `array`
-+ **throws**: `Exception`
+**param**:  
+```php
+string $url
+```
+**return**:  
+```php
+array
+```
+**throws**:  
+```php
+Exception
+```
 
 ### n0()
 
@@ -102,8 +162,14 @@ public static function getJson(string $url): array
 public static function n0(float $number): int
 ```
 
-+ **param**: `float $number`
-+ **return**: `int`
+**param**:  
+```php
+float $number
+```
+**return**:  
+```php
+int
+```
 
 ### n1()
 
@@ -113,8 +179,14 @@ public static function n0(float $number): int
 public static function n1(float $number): float
 ```
 
-+ **param**: `float $number`
-+ **return**: `float`
+**param**:  
+```php
+float $number
+```
+**return**:  
+```php
+float
+```
 
 ### n2()
 
@@ -124,8 +196,14 @@ public static function n1(float $number): float
 public static function n2(float $number): float
 ```
 
-+ **param**: `float $number`
-+ **return**: `float`
+**param**:  
+```php
+float $number
+```
+**return**:  
+```php
+float
+```
 
 ### n3()
 
@@ -135,8 +213,14 @@ public static function n2(float $number): float
 public static function n3(float $number): float
 ```
 
-+ **param**: `float $number`
-+ **return**: `float`
+**param**:  
+```php
+float $number
+```
+**return**:  
+```php
+float
+```
 
 ### n4()
 
@@ -146,8 +230,14 @@ public static function n3(float $number): float
 public static function n4(float $number): float
 ```
 
-+ **param**: `float $number`
-+ **return**: `float`
+**param**:  
+```php
+float $number
+```
+**return**:  
+```php
+float
+```
 
 ### makeMdStrict()
 
@@ -157,9 +247,18 @@ public static function n4(float $number): float
 public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
 ```
 
-+ **param**: `string **$string**`
-+ **param**: `string **$allowedTags**`
-+ **return**: `string Cleaned and converted output string`
+**param**:  
+```php
+string $string Input
+```
+**param**:  
+```php
+string $allowedTags Comma separated list of allowed tags
+```
+**return**:  
+```php
+string Cleaned and converted output string
+```
 
 ### makeMdLight()
 
@@ -169,8 +268,14 @@ public static function makeMdStrict(string $string, string $allowedTags = 'i,em,
 public static function makeMdLight(string $string): string
 ```
 
-+ **param**: `string $string`
-+ **return**: `string`
+**param**:  
+```php
+string $string
+```
+**return**:  
+```php
+string
+```
 
 ### makeMd()
 
@@ -180,8 +285,14 @@ public static function makeMdLight(string $string): string
 public static function makeMd(string $string): string
 ```
 
-+ **param**: `string $string`
-+ **return**: `string`
+**param**:  
+```php
+string $string
+```
+**return**:  
+```php
+string
+```
 
 ### test()
 
@@ -191,9 +302,18 @@ public static function makeMd(string $string): string
 public static function test($testObject, string $title = ''): void
 ```
 
-+ **var**: `$testObject \Test`
-+ **param**: `string $title Title of test`
-+ **return**: `void`
+**var**:  
+```php
+$testObject \Test
+```
+**param**:  
+```php
+string $title Title of test
+```
+**return**:  
+```php
+void
+```
 
 ### testMissing()
 
@@ -203,7 +323,10 @@ public static function test($testObject, string $title = ''): void
 public static function testMissing(string $text): void
 ```
 
-+ **param**: `string $text`
+**param**:  
+```php
+string $text
+```
 
 ### documentClass()
 
@@ -213,6 +336,12 @@ public static function testMissing(string $text): void
 public static function documentClass($className, $title = 'Usage')
 ```
 
-+ **param**: `string $className Generate documentation for`
-+ **throws**: `ReflectionException`
+**param**:  
+```php
+string $className Generate documentation for
+```
+**throws**:  
+```php
+ReflectionException
+```
 
