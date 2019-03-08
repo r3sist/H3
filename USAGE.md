@@ -2,13 +2,12 @@
 
 > Public methods of *\H3*
 
-[TOC]
-
 ### render()
 
 > 
 
 ```php
+<?php
 public static function render(string $layout): void
 ```
 
@@ -23,6 +22,7 @@ string $layout
 > 
 
 ```php
+<?php
 public static function gen(int $length): string
 ```
 
@@ -41,6 +41,7 @@ string
 > 
 
 ```php
+<?php
 public static function clean($string, $pattern = '', $replacement = ''): string
 ```
 
@@ -67,6 +68,7 @@ string
 > 
 
 ```php
+<?php
 public static function dump($var)
 ```
 
@@ -81,6 +83,7 @@ $var
 > 
 
 ```php
+<?php
 public static function shorten(string $string, int $length): string
 ```
 
@@ -103,6 +106,7 @@ string
 > 
 
 ```php
+<?php
 public static function keyDown($a, $x) {
 ```
 
@@ -125,6 +129,7 @@ array
 > 
 
 ```php
+<?php
 public static function keyUp($a, $x) {
 ```
 
@@ -147,6 +152,7 @@ array
 > 
 
 ```php
+<?php
 public static function getJson(string $url): array
 ```
 
@@ -169,6 +175,7 @@ Exception
 > 
 
 ```php
+<?php
 public static function n0(float $number): int
 ```
 
@@ -187,6 +194,7 @@ int
 > 
 
 ```php
+<?php
 public static function n1(float $number): float
 ```
 
@@ -205,6 +213,7 @@ float
 > 
 
 ```php
+<?php
 public static function n2(float $number): float
 ```
 
@@ -223,6 +232,7 @@ float
 > 
 
 ```php
+<?php
 public static function n3(float $number): float
 ```
 
@@ -241,6 +251,7 @@ float
 > 
 
 ```php
+<?php
 public static function n4(float $number): float
 ```
 
@@ -259,6 +270,7 @@ float
 > 
 
 ```php
+<?php
 public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
 ```
 
@@ -281,6 +293,7 @@ string // Cleaned and converted output string
 > 
 
 ```php
+<?php
 public static function makeMdLight(string $string): string
 ```
 
@@ -299,6 +312,7 @@ string
 > 
 
 ```php
+<?php
 public static function makeMd(string $string): string
 ```
 
@@ -317,6 +331,7 @@ string
 > Renders Fatfree Framework test object
 
 ```php
+<?php
 public static function test($testObject, string $title = ''): void
 ```
 
@@ -339,6 +354,7 @@ void
 > 
 
 ```php
+<?php
 public static function testMissing(string $text): void
 ```
 
@@ -353,6 +369,7 @@ string $text
 > Generates markdown documentation of specific class based on dockblocks
 
 ```php
+<?php
 public static function documentClass($className, $title = 'Usage')
 ```
 
