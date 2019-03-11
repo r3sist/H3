@@ -5,6 +5,8 @@
 
 require_once 'vendor/autoload.php';
 
+\H3::documentClass('\H3');
+
 $test = new \Test();
 
 $test->expect(is_callable("H3::render") == true, 'is_callable("H3::render") == true');
