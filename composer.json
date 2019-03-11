@@ -6,8 +6,10 @@
   "require": {
     "php": ">=7.2.0",
     "bcosca/fatfree-core": "3.6.*",
-    "resist/v3": "dev-master",
-    "kamermans/docblock-reflection": "~1.0"
+    "resist/v3": "dev-master"
+  },
+  "require-dev": {
+    "resist/apidoc": "dev-master"
   },
   "autoload": {
     "files": ["H3.php"]

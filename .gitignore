@@ -6,3 +6,5 @@ tmp/
 _ignore.php
 composer.phar
 composer.lock
+.apidoc.bat
+USAGE.md
