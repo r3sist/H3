@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class H3
+ * @package resist
+ */
 class H3
 {
 
@@ -248,6 +252,7 @@ class H3
      */
     public static function documentClass($className, $title = 'Usage')
     {
+        // https://github.com/kamermans/docblock-reflection/blob/master/src/DocBlock.php
         $className = \V3::clean($className, 'class');
         $title = \Base::instance()->clean($title);
 

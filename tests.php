@@ -4,8 +4,10 @@
  */
 
 require_once 'vendor/autoload.php';
+require_once('Apidoc.php');
+$doc = new resist\Apidoc('\resist\Apidoc');
 
-\H3::documentClass('\H3');
+die;
 
 $test = new \Test();
 
