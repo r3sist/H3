@@ -244,4 +244,19 @@ class H3
         echo str_pad("\033[31mMISSING\e[0m", 7);
         echo "\n";
     }
+
+    /**
+     * This method is forked from Fatfree Framework's \Web\rss() method
+     * @param $url
+     * @param int $max
+     * @return array|bool
+     */
+    public static function atom($url) {
+        if ($data = \Web::instance()->request($url)) {
+            libxml_use_internal_errors(true);
+            $xml = simplexml_load_string($data['body'], 'SimpleXMLElement',LIBXML_NOBLANKS|LIBXML_NOERROR|LIBXML_NOCDATA);
+            return json_decode(json_encode((array)$xml), TRUE);
+        }
+        return false;
+    }
 }
