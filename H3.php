@@ -251,12 +251,12 @@ class H3
      * @param int $max
      * @return array|bool
      */
-    public static function atom($url) {
+    public static function atom($url): array {
         if ($data = \Web::instance()->request($url)) {
             libxml_use_internal_errors(true);
             $xml = simplexml_load_string($data['body'], 'SimpleXMLElement',LIBXML_NOBLANKS|LIBXML_NOERROR|LIBXML_NOCDATA);
             return json_decode(json_encode((array)$xml), TRUE);
         }
-        return false;
+        return [];
     }
 }
