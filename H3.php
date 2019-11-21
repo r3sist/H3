@@ -15,6 +15,14 @@ class H3
         echo \Template::instance()->render(\V3::clean($layout, 'path').'.html');
     }
 
+    public static function renderInfo(string $head, string $body): void
+    {
+        $f3 = \Base::instance();
+        $allowedTags = 'b,i,strong,em,div,span,p,small,pre';
+        $html = '<html><head><title>'.$f3->clean($head).'</title></head><body><h1>'.$f3->clean($head, $allowedTags).'</h1>'.$f3->clean($body, $allowedTags).'</body></html>';
+        echo $html;
+    }
+
     /**
      * @param int $length
      * @return string
