@@ -8,9 +8,6 @@
     "bcosca/fatfree-core": "3.*",
     "resist/v3": "dev-master"
   },
-  "require-dev": {
-    "resist/apidoc": "dev-master"
-  },
   "autoload": {
     "files": ["H3.php"]
   },
