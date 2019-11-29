@@ -12,7 +12,7 @@
     "resist/v3": "dev-master"
   },
   "autoload": {
-    "files": ["H3.php"]
+    "classmap": ["src"]
   },
   "minimum-stability": "dev",
   "prefer-stable": true
