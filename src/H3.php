@@ -1,9 +1,8 @@
 <?php
+// H3 - Helpers for Fatfree Framework
+// Static helpers
+// (c) resist | https://github.com/r3sist/h3
 
-/**
- * Class H3
- * @package resist
- */
 class H3
 {
     public static function render(string $layout): void
@@ -11,18 +10,6 @@ class H3
         echo \Template::instance()->render(\V3::clean($layout, 'path').'.html');
     }
 
-    public static function renderInfo(string $head, string $body): void
-    {
-        $f3 = \Base::instance();
-        $allowedTags = 'b,i,strong,em,div,span,p,small,pre';
-        $html = '<html lang="hu"><head><title>'.$f3->clean($head).'</title></head><body><h1>'.$f3->clean($head, $allowedTags).'</h1>'.$f3->clean($body, $allowedTags).'</body></html>';
-        echo $html;
-    }
-
-    /**
-     * @param int $length
-     * @return string
-     */
     public static function gen(int $length): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';

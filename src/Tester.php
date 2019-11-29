@@ -1,6 +1,6 @@
 <?php
 // H3 - Helpers for Fatfree Framework
-// Stupid CLI Tests
+// Stupid CLI Test handler
 // (c) resist | https://github.com/r3sist/h3
 
 namespace resist\H3;
@@ -9,7 +9,7 @@ use \Test;
 
 class Tester extends Test
 {
-    public function results()
+    public function show()
     {
         echo "\nTest results\n".str_repeat('=', 100)."\n";
         foreach ($this->results() as $result) {

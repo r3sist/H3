@@ -5,8 +5,16 @@
 
 require_once '../vendor/autoload.php';
 
-$test = new resist\H3\Tester($test);
+$test = new \resist\H3\Tester();
 
+// Atom
+$a = new \resist\H3\Atom(\Web::instance());
+$test->expect(is_array($a->getFeedArray('')), '');
+
+$test->show();
+
+die;
+// Old and deprecated ones
 $test->expect(is_callable("H3::render") == true, 'is_callable("H3::render") == true');
 $test->expect(is_callable("\Template::render") == true, 'is_callable("\Template::render") == true');
 
@@ -47,7 +55,7 @@ $test->expect(H3::n1(1.49) === (float)1.5, 'H3::n1(1.49) === (float)1.5');
 $test->expect(is_callable("H3::test") == true, 'is_callable("H3::test")');
 $test->expect(is_callable("H3::testMissing") == true, 'is_callable("H3::testMissing")');
 
-$test->results();
+
 $test->missing('keyUp');
 $test->missing('keyDown');
 $test->missing('getJson');
