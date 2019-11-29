@@ -1,8 +1,8 @@
 {
   "name": "resist/h3",
   "description": "Simple helper methods for Fatfree Framework powered apps",
-  "homepage": "https://resist.hu",
-  "license": "CDDL-1.0",
+  "homepage": "https://structure.hu",
+  "license": "GPL-3.0-only",
   "require": {
     "php": ">=7.4",
     "ext-libxml": "*",
