@@ -55,37 +55,29 @@ class H3
         return '';
     }
 
-    /**
-     * @param $a
-     * @param $x
-     * @return array
-     */
-    public static function keyDown($a, $x) {
-        if (count($a)-1 > $x) {
-            $b = array_slice($a,0,$x,true);
-            $b[] = $a[$x+1];
-            $b[] = $a[$x];
-            $b += array_slice($a,$x+2,count($a),true);
-            return($b);
+    public static function keyDown(array $array, $keyNumber): array
+    {
+        if (count($array)-1 > $keyNumber) {
+            $brray = array_slice($array,0,$keyNumber,true);
+            $brray[] = $array[$keyNumber+1];
+            $brray[] = $array[$keyNumber];
+            $brray += array_slice($array,$keyNumber+2,count($array),true);
+            return((array)$brray);
         } else {
-            return $a;
+            return (array)$array;
         }
     }
 
-    /**
-     * @param $a
-     * @param $x
-     * @return array
-     */
-    public static function keyUp($a, $x) {
-        if ($x > 0 and $x < count($a)) {
-            $b = array_slice($a,0,($x-1),true);
-            $b[] = $a[$x];
-            $b[] = $a[$x-1];
-            $b += array_slice($a,($x+1),count($a),true);
-            return($b);
+    public static function keyUp(array $array, $keyNumber): array
+    {
+        if ($keyNumber > 0 and $keyNumber < count($array)) {
+            $brray = array_slice($array,0,($keyNumber-1),true);
+            $brray[] = $array[$keyNumber];
+            $brray[] = $array[$keyNumber-1];
+            $brray += array_slice($array,($keyNumber+1),count($array),true);
+            return((array)$brray);
         } else {
-            return $a;
+            return (array)$array;
         }
     }
 
