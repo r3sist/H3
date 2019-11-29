@@ -21,28 +21,20 @@ class H3
     }
 
     /**
-     * @deprecated
+     * @deprecated Use proper validation instead
      */
     public static function clean($string, $pattern = '', $replacement = ''): string
     {
         return \V3::clean($string, $pattern, $replacement);
     }
 
-    /**
-     * @param $var
-     */
-    public static function dump($var)
+    public static function dump($var): void
     {
         echo '<pre>';
         var_dump($var);
         echo '</pre>';
     }
 
-    /**
-     * @param string $string
-     * @param int $length
-     * @return string
-     */
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
     {
         if (strlen ($string) > 0) {
@@ -81,28 +73,12 @@ class H3
     }
 
     /**
-     * @param string $url
-     * @return array
-     * @throws Exception
+     * @deprecated Use Json class sinstead
      */
     public static function getJson(string $url): array
     {
-        if (\Audit::instance()->url($url) != true) {
-            throw new \Exception('getJson error - not valid url: '.$url);
-        }
-
-        $response = \Web::instance()->request($url);
-
-        if ($response['error']) {
-            throw new \Exception('Error: '.$response['error'].' '.$url);
-        }
-
-        $data = json_decode($response['body'], true);
-        if (is_null($data)) {
-            throw new \Exception('Response not valid JSON data');
-        }
-
-        return $data;
+        $json = new \resist\H3\Json(\Web::instance());
+        return $json->getJsonAsArray($url);
     }
 
     /**
