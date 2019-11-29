@@ -4,7 +4,10 @@
   "homepage": "https://resist.hu",
   "license": "CDDL-1.0",
   "require": {
-    "php": ">=7.2.0",
+    "php": ">=7.4",
+    "ext-libxml": "*",
+    "ext-simplexml": "*",
+    "ext-json": "*",
     "bcosca/fatfree-core": "3.*",
     "resist/v3": "dev-master"
   },

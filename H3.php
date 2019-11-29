@@ -6,10 +6,6 @@
  */
 class H3
 {
-
-    /**
-     * @param string $layout
-     */
     public static function render(string $layout): void
     {
         echo \Template::instance()->render(\V3::clean($layout, 'path').'.html');
@@ -19,7 +15,7 @@ class H3
     {
         $f3 = \Base::instance();
         $allowedTags = 'b,i,strong,em,div,span,p,small,pre';
-        $html = '<html><head><title>'.$f3->clean($head).'</title></head><body><h1>'.$f3->clean($head, $allowedTags).'</h1>'.$f3->clean($body, $allowedTags).'</body></html>';
+        $html = '<html lang="hu"><head><title>'.$f3->clean($head).'</title></head><body><h1>'.$f3->clean($head, $allowedTags).'</h1>'.$f3->clean($body, $allowedTags).'</body></html>';
         echo $html;
     }
 
@@ -251,20 +247,5 @@ class H3
         echo str_pad($text.' ', 93);
         echo str_pad("\033[31mMISSING\e[0m", 7);
         echo "\n";
-    }
-
-    /**
-     * This method is forked from Fatfree Framework's \Web\rss() method
-     * @param $url
-     * @param int $max
-     * @return array|bool
-     */
-    public static function atom($url): array {
-        if ($data = \Web::instance()->request($url)) {
-            libxml_use_internal_errors(true);
-            $xml = simplexml_load_string($data['body'], 'SimpleXMLElement',LIBXML_NOBLANKS|LIBXML_NOERROR|LIBXML_NOCDATA);
-            return json_decode(json_encode((array)$xml), TRUE);
-        }
-        return [];
     }
 }
