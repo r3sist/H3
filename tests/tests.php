@@ -1,15 +1,11 @@
 <?php
-/**
- * CLI tests for H3
- */
+// H3 - Helpers for Fatfree Framework
+// Test methods
+// (c) resist | https://github.com/r3sist/h3
 
-require_once 'vendor/autoload.php';
-require_once('Apidoc.php');
-$doc = new resist\Apidoc('\resist\Apidoc');
+require_once '../vendor/autoload.php';
 
-die;
-
-$test = new \Test();
+$test = new resist\H3\Tester($test);
 
 $test->expect(is_callable("H3::render") == true, 'is_callable("H3::render") == true');
 $test->expect(is_callable("\Template::render") == true, 'is_callable("\Template::render") == true');
@@ -51,10 +47,10 @@ $test->expect(H3::n1(1.49) === (float)1.5, 'H3::n1(1.49) === (float)1.5');
 $test->expect(is_callable("H3::test") == true, 'is_callable("H3::test")');
 $test->expect(is_callable("H3::testMissing") == true, 'is_callable("H3::testMissing")');
 
-\H3::test($test, 'clean');
-\H3::testMissing('keyUp');
-\H3::testMissing('keyDown');
-\H3::testMissing('getJson');
-\H3::testMissing('makeMdStrict');
-\H3::testMissing('makeMdLight');
-\H3::testMissing('makeMd');
+$test->results();
+$test->missing('keyUp');
+$test->missing('keyDown');
+$test->missing('getJson');
+$test->missing('makeMdStrict');
+$test->missing('makeMdLight');
+$test->missing('makeMd');

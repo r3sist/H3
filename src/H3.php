@@ -217,35 +217,5 @@ class H3
         return $md;
     }
 
-    /**
-     * Renders Fatfree Framework test object
-     * @var $testObject \Test
-     * @param string $title // Title of test
-     * @return void
-     */
-    public static function test($testObject, string $title = ''): void
-    {
-        echo "\n$title test results\n".str_repeat('=', 100)."\n";
-        foreach ($testObject->results() as $result) {
-            echo str_pad($result['text'].' ', 93);
-            if ($result['status']) {
-                echo str_pad("\033[32mPASSED\e[0m", 7);
-            } else {
-                echo str_pad("\033[31mFAILED\e[0m", 7);
-                echo "\n\t".$result['source'];
-            }
-            echo "\n";
-        }
-        echo str_repeat('-', 100)."\n".($testObject->passed()?"\033[32mPASSED\e[0m":"\033[31mFAILED\e[0m")."\n";
-    }
 
-    /**
-     * @param string $text
-     */
-    public static function testMissing(string $text): void
-    {
-        echo str_pad($text.' ', 93);
-        echo str_pad("\033[31mMISSING\e[0m", 7);
-        echo "\n";
-    }
 }

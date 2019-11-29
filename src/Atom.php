@@ -1,5 +1,7 @@
 <?php
-// H3 - Simple Helpers for Fatfree Framework
+// H3 - Helpers for Fatfree Framework
+// Simple atom feed parser
+// (c) resist | https://github.com/r3sist/h3
 
 namespace resist\H3;
 
