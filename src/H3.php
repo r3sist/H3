@@ -21,10 +21,7 @@ class H3
     }
 
     /**
-     * @param $string
-     * @param string $pattern
-     * @param string $replacement
-     * @return string
+     * @deprecated
      */
     public static function clean($string, $pattern = '', $replacement = ''): string
     {
