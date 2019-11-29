@@ -45,12 +45,11 @@ class H3
      */
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
     {
-        $f3 = \Base::instance();
         if (strlen ($string) > 0) {
             if (strlen ($string) > $length) {
-                return substr($f3->clean($string), 0, $length).$extend;
+                return substr($string, 0, $length).$extend;
             }
-            return $f3->clean($string);
+            return $string;
         }
         return '';
     }
