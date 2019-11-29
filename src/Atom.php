@@ -17,7 +17,7 @@ class Atom
     }
 
     // This method was forked from Fatfree Framework's \Web\rss() method
-    public function getFeedArray(string $url): array {
+    public function getFeedAsArray(string $url): array {
         // URL filter is not UTF-8 ready
         if (filter_var($url, FILTER_VALIDATE_URL) !== false && $data = $this->web->request($url)) {
             libxml_use_internal_errors(true);

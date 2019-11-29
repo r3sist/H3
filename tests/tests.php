@@ -9,7 +9,7 @@ $test = new \resist\H3\Tester();
 
 // Atom
 $a = new \resist\H3\Atom(\Web::instance());
-$test->expect(is_array($a->getFeedArray('')), '');
+$test->expect(is_array($a->getFeedAsArray('')), '');
 
 $test->show();
 
