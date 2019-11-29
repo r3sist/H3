@@ -46,6 +46,9 @@ class H3
         return '';
     }
 
+    /**
+     * @deprecated Probably dead code
+     */
     public static function keyDown(array $array, $keyNumber): array
     {
         if (count($array)-1 > $keyNumber) {
@@ -59,6 +62,9 @@ class H3
         }
     }
 
+    /**
+     * @deprecated Probably dead code
+     */
     public static function keyUp(array $array, $keyNumber): array
     {
         if ($keyNumber > 0 and $keyNumber < count($array)) {
@@ -73,7 +79,7 @@ class H3
     }
 
     /**
-     * @deprecated Use Json class sinstead
+     * @deprecated Use Json class instead
      */
     public static function getJson(string $url): array
     {
@@ -81,92 +87,69 @@ class H3
         return $json->getJsonAsArray($url);
     }
 
-    /**
-     * @param float $number
-     * @return int
-     */
     public static function n0(float $number): int
     {
         return (int)number_format($number, 0, '.', '');
     }
 
-    /**
-     * @param float $number
-     * @return float
-     */
     public static function n1(float $number): float
     {
         return number_format($number, 1, '.', '');
     }
 
-    /**
-     * @param float $number
-     * @return float
-     */
     public static function n2(float $number): float
     {
         return number_format($number, 2, '.', '');
     }
 
-    /**
-     * @param float $number
-     * @return float
-     */
     public static function n3(float $number): float
     {
         return number_format($number, 3, '.', '');
     }
 
-    /**
-     * @param float $number
-     * @return float
-     */
     public static function n4(float $number): float
     {
         return number_format($number, 4, '.', '');
     }
 
-    /*
-     * Returns converted md; HTML in input is cleaned; output is filtered by allowed tags
-     */
+    public static function ns(float $number): float
+    {
+        return number_format($number, 4, '.', ' ');
+    }
+
     /**
+     * Returns converted md; HTML in input is cleaned; output is filtered by allowed tags
+     * @deprecated Use Md class instead
      * @param string $string Input
      * @param string $allowedTags // Comma separated list of allowed tags
      * @return string // Cleaned and converted output string
      */
-    public static function makeMdStrict(string $string, string $allowedTags = 'i,em,b,strong,a,code'): string
+    public static function makeMdStrict(string $string, string $allowedTags = ''): string
     {
-        $f3 = \Base::instance();
-        $string = $f3->clean($string, 'br');
-        $md = \Markdown::instance()->convert($string);
-        $cleaned = $f3->clean($md, $allowedTags);
-        return $cleaned;
+        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
+        return $md->makeOneLine($string);
     }
 
-    /*
-     * Returns converted md; HTML in input is cleaned
-     */
     /**
+     * Returns converted md; HTML in input is cleaned
+     * @deprecated Use Md class instead
      * @param string $string
      * @return string
      */
     public static function makeMdLight(string $string): string
     {
-        $f3 = \Base::instance();
-        $string = $f3->clean($string, 'br');
-        $md = \Markdown::instance()->convert($string);
-        return $md;
+        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
+        return $md->makeWithoutHtml($string);
     }
 
     /**
+     * @deprecated Use Md class instead
      * @param string $string
      * @return string
      */
     public static function makeMd(string $string): string
     {
-        $md = \Markdown::instance()->convert($string);
-        return $md;
+        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
+        return $md->makeMd($string);
     }
-
-
 }
