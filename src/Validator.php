@@ -6,12 +6,9 @@ namespace resist\H3;
 
 class Validator
 {
-    /** May contain: a-zA-Z0-9 space , ; . */
+    /** May be empty string or contain: a-zA-Z0-9 space , ; . */
     public function isAlphanumericList(string $value): bool
     {
-        if ((bool)preg_match("/^([a-zA-Z0-9 ,;.])+$/i", $value)) {
-            return true;
-        }
-        return false;
+        return $value === '' || (bool)preg_match("/^([a-zA-Z0-9 ,;.])+$/i", $value);
     }
 }
