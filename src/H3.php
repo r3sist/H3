@@ -1,5 +1,5 @@
 <?php
-// H3 - Helpers for Fatfree Framework
+// H3 - Static helpers for Fatfree Framework
 // Static helpers
 // (c) resist | https://github.com/r3sist/h3
 
@@ -57,9 +57,9 @@ class H3
             $brray[] = $array[$keyNumber];
             $brray += array_slice($array,$keyNumber+2,count($array),true);
             return((array)$brray);
-        } else {
-            return (array)$array;
         }
+
+        return $array;
     }
 
     /**
@@ -73,13 +73,14 @@ class H3
             $brray[] = $array[$keyNumber-1];
             $brray += array_slice($array,($keyNumber+1),count($array),true);
             return((array)$brray);
-        } else {
-            return (array)$array;
         }
+
+        return $array;
     }
 
     /**
      * @deprecated Use Json class instead
+     * @throws Exception
      */
     public static function getJson(string $url): array
     {
