@@ -31,12 +31,12 @@ class Logger
     {
         $query = 'INSERT INTO'.self::TABLE.' (uname, lgroup, ltitle, lbody, lts, lip) VALUES (:uname, :lgroup, :ltitle, :lbody, :lts, :lip)';
         $this->db->exec($query, [
-            ':uname' => $this->f3->uname,
+            ':uname' => $this->f3->get('uname'),
             ':lgroup' => $this->f3->clean($group),
             ':ltitle' => $this->f3->clean($title),
             ':lbody' => $body,
             ':lts' => time(),
-            ':lip' => $this->f3->IP
+            ':lip' => $this->f3->get('IP')
         ]);
     }
 }
