@@ -20,19 +20,23 @@ class Logger
     {
         $this->f3 = $f3;
         $this->db = $db;
+    }
+
+    public function registerMap()
+    {
         $this->map = new Mapper($this->db, self::TABLE);
     }
 
     public function create(string $group, string $title = '', string $body = ''): void
     {
-        $this->map->reset();
-        $this->map->uname = $this->f3->uname;
-        $this->map->lgroup = $group;
-        $this->map->ltitle = $title;
-        $this->map->lbody = $body;
-        $this->map->lts = time();
-        $this->map->lip = $this->f3->IP;
-        $this->map->save();
-        $this->map->reset();
+        $query = 'INSERT INTO'.self::TABLE.' (uname, lgroup, ltitle, lbody, lts, lip) VALUES (:uname, :lgroup, :ltitle, :lbody, :lts, :lip)';
+        $this->db->exec('$query', [
+            ':uname' => $this->f3->uname,
+            ':lgroup' => $this->f3->clean($group),
+            ':ltitle' => $this->f3->clean($title),
+            ':lbody' => $body,
+            ':lts' => time(),
+            ':lip' => $this->f3->IP
+        ]);
     }
 }
