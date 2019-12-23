@@ -11,6 +11,9 @@
     "bcosca/fatfree-core": "3.*",
     "resist/v3": "dev-master"
   },
+  "require-dev": {
+    "nette/tester": "2.*"
+  },
   "autoload": {
     "classmap": ["src"]
   },

@@ -7,6 +7,7 @@ namespace resist\H3;
 
 use \Test;
 
+/** @deprecated */
 class Tester extends Test
 {
     public function show()

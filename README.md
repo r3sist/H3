@@ -6,6 +6,8 @@
 
 It's not recommended to use in production, this repository is for personal use only. 
 
+[![Build Status](https://travis-ci.org/r3sist/h3.svg?branch=master)](https://travis-ci.org/r3sist/h3)
+
 ---
 
 ## Installation
