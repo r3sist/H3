@@ -95,27 +95,22 @@ class H3
 
     public static function n1(float $number): float
     {
-        return number_format($number, 1, '.', '');
+        return (float)number_format($number, 1, '.', '');
     }
 
     public static function n2(float $number): float
     {
-        return number_format($number, 2, '.', '');
+        return (float)number_format($number, 2, '.', '');
     }
 
     public static function n3(float $number): float
     {
-        return number_format($number, 3, '.', '');
+        return (float)number_format($number, 3, '.', '');
     }
 
     public static function n4(float $number): float
     {
-        return number_format($number, 4, '.', '');
-    }
-
-    public static function ns(float $number): float
-    {
-        return number_format($number, 4, '.', ' ');
+        return (float)number_format($number, 4, '.', '');
     }
 
     /**
