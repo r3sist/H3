@@ -6,12 +6,7 @@ use Tester\Assert;
 
 Tester\Environment::setup();
 
-// TEST RENDER
-
-Assert::true(is_callable("H3::render"));
-
-// TEST GEN
-
+Assert::true(is_callable("H3::gen"));
 Assert::type('string', H3::gen(10));
 Assert::type('string', H3::gen(0));
 Assert::true(strlen(H3::gen(10)) === 10);
@@ -22,7 +17,3 @@ Assert::exception(function () {
 Assert::exception(function () {
     H3::gen(10.1);
 }, TypeError::class);
-
-
-
-

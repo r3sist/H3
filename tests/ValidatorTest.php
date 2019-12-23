@@ -9,7 +9,6 @@ Tester\Environment::setup();
 $v = new \resist\H3\Validator();
 
 // TEST ALPHANUMERIC-LIST
-
 Assert::type('bool', $v->isAlphanumericList(new \H3()));
 Assert::type('bool', $v->isAlphanumericList(0));
 Assert::type('bool', $v->isAlphanumericList(1));
@@ -41,7 +40,6 @@ Assert::false($v->isAlphanumericList(false));
 Assert::false($v->isAlphanumericList(new \H3()));
 
 // TEST MATH
-
 Assert::type('bool', $v->isMath(new \H3()));
 Assert::type('bool', $v->isMath(0));
 Assert::type('bool', $v->isMath(1));
@@ -66,6 +64,3 @@ Assert::false($v->isMath(null));
 Assert::false($v->isMath(true));
 Assert::false($v->isMath(false));
 Assert::false($v->isMath(new \H3()));
-
-
-
