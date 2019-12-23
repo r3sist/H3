@@ -58,13 +58,3 @@ Assert::exception(function () {
 Assert::true(is_callable("H3::n2"));
 Assert::true(is_callable("H3::n3"));
 Assert::true(is_callable("H3::n4"));
-
-// TEST NS
-Assert::true(is_callable("H3::ns"));
-
-Assert::type('string', H3::ns(10));
-Assert::type('string', H3::ns(-10.11));
-Assert::type('string', H3::ns(10000.1));
-
-echo H3::ns(10000.1);
-Assert::true(H3::ns(0) === '0.0000');
