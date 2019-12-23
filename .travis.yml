@@ -13,7 +13,7 @@ install:
   - composer install --no-interaction
 
 script:
-  - ./vendor/bin/tester -p $PHP_BIN tests -s
+  - ./vendor/bin/tester -p $PHP_BIN ./tests/ -s
 
 after_failure:
   # Prints *.actual files content
