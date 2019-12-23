@@ -10,7 +10,7 @@ install:
   - composer install --no-interaction
 
 script:
-  - ./vendor/bin/tester -s ./tests
+  - ./vendor/bin/tester -s ./tests/
 
 after_failure:
   # Prints *.actual files content
