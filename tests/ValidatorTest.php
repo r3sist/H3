@@ -13,6 +13,7 @@ $v = new \resist\H3\Validator();
 Assert::type('bool', $v->isAlphanumericList(new \H3()));
 Assert::type('bool', $v->isAlphanumericList(0));
 Assert::type('bool', $v->isAlphanumericList(1));
+Assert::type('bool', $v->isAlphanumericList(10));
 Assert::type('bool', $v->isAlphanumericList(null));
 Assert::type('bool', $v->isAlphanumericList('string'));
 Assert::type('bool', $v->isAlphanumericList(true));
@@ -38,6 +39,33 @@ Assert::false($v->isAlphanumericList(null));
 Assert::false($v->isAlphanumericList(true));
 Assert::false($v->isAlphanumericList(false));
 Assert::false($v->isAlphanumericList(new \H3()));
+
+// TEST MATH
+
+Assert::type('bool', $v->isMath(new \H3()));
+Assert::type('bool', $v->isMath(0));
+Assert::type('bool', $v->isMath(1));
+Assert::type('bool', $v->isMath(10));
+Assert::type('bool', $v->isMath(null));
+Assert::type('bool', $v->isMath('string'));
+Assert::type('bool', $v->isMath(true));
+
+Assert::true($v->isMath(10));
+Assert::true($v->isMath(0));
+Assert::true($v->isMath(1));
+Assert::true($v->isMath(10.10));
+Assert::true($v->isMath('10'));
+Assert::true($v->isMath('text'));
+Assert::true($v->isMath('=10+10'));
+Assert::true($v->isMath(' .,;<>+()=%^*-/'));
+Assert::true($v->isMath('= sin(14)+x/c-(d^2)'));
+
+Assert::false($v->isMath('&'));
+Assert::false($v->isMath('# +1'));
+Assert::false($v->isMath(null));
+Assert::false($v->isMath(true));
+Assert::false($v->isMath(false));
+Assert::false($v->isMath(new \H3()));
 
 
 

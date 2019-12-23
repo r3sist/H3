@@ -18,6 +18,9 @@ class Validator
     /** May be empty string or contain: a-zA-Z0-9 space .,;<>+()=%^*-/ */
     public function isMath($mathExpression): bool
     {
-        return $mathExpression === '' || (bool)preg_match("/([^A-Za-z0-9 .,;<>+()=%^\-\*\/])+/u", $mathExpression);
+        if ($mathExpression === true || is_object($mathExpression)) {
+            return false;
+        }
+        return $mathExpression === '' || (bool)preg_match("/^([a-zA-Z0-9 .,;<>+()=%^\-*\/])+$/i", $mathExpression);
     }
 }
