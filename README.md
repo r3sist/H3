@@ -17,3 +17,16 @@ Via composer: `"resist/H3": "dev-master"`
 ## License
 
 GNU GPLv3
+
+## Developer notes
+
+### Code coverage generation setup
+Run:  
+`.\vendor\bin\tester -c tests/php.ini --coverage coverage.html`
+
+PCOV (*php_pcov.dll*) is required in PHP *ext* folder.  
+Also *tests\php.ini* contains:
+
+```ini
+extension=php_pcov.dll
+```

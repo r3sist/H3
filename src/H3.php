@@ -148,4 +148,10 @@ class H3
         $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
         return $md->makeMd($string);
     }
+
+    /** @param int|float|string $string */
+    public static function slug($string): string
+    {
+        return \Web::instance()->slug((string)$string);
+    }
 }
