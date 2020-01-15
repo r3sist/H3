@@ -8,8 +8,7 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "ext-json": "*",
-    "bcosca/fatfree-core": "3.*",
-    "resist/v3": "dev-master"
+    "bcosca/fatfree-core": "3.*"
   },
   "require-dev": {
     "nette/tester": "2.*"
