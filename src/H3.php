@@ -5,9 +5,11 @@
 
 class H3
 {
-    public static function render(string $layout): void
+    public static function render(string $template): void
     {
-        echo \Template::instance()->render(\V3::clean($layout, 'path').'.html');
+        $regex = "/([^A-Za-z0-9_ÁÍŰŐÜŐÚÓÉáíűőüöúóé.\\\\\-\/ ])+/u";
+        $template = preg_replace($regex, '', $template);
+        echo \Template::instance()->render($template.'.html');
     }
 
     public static function gen(int $length): string
