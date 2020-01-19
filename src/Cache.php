@@ -2,12 +2,12 @@
 
 namespace resist\H3;
 
-use Base;
 use DB\SQL;
 use DB\SQL\Mapper;
+use Prefab;
 
 /** @deprecated Try not to use this class */
-class Cache
+class Cache extends Prefab
 {
     const TABLE = 'cache';
 
@@ -21,7 +21,7 @@ class Cache
     }
 
     /** @param mixed $data */
-    public function put(string $cacheName, $data, int $cacheCol = 1): void
+    public function create(string $cacheName, $data, int $cacheCol = 1): void
     {
         if (!in_array($cacheCol, [1, 2, 3, 4])) {
             throw new \Exception('Invalid cache col id');
