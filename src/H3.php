@@ -7,7 +7,7 @@ class H3
 {
     public static function render(string $template): void
     {
-        $regex = "/([^A-Za-z0-9_\\\-\/])+/u";
+        $regex = "/([^A-Za-z0-9_\\\\\-\/])+/u";
         $template = preg_replace($regex, '', $template);
         echo \Template::instance()->render($template.'.html');
     }
