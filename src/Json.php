@@ -19,9 +19,9 @@ class Json
 
     public function getJsonAsArray(string $url): array
     {
-        if (filter_var($url, FILTER_VALIDATE_URL) !== true) {
-            throw new Exception('getJson error - not valid url: '.$url);
-        }
+//        if (filter_var($url, FILTER_VALIDATE_URL) !== true) {
+//            throw new Exception('getJson error - not valid url: '.$url);
+//        }
 
         $response = $this->web->request($url);
 
