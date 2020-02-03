@@ -20,8 +20,16 @@ GNU GPLv3
 
 ## Developer notes
 
-### Code coverage generation setup
-Run:  
+### Testing
+
+https://tester.nette.org/en/guide 
+
+Windows:  
+`.\vendor\bin\tester tests`
+
+#### Code coverage generation setup
+
+Windows:  
 `.\vendor\bin\tester -c tests/php.ini --coverage coverage.html`
 
 PCOV (*php_pcov.dll*) is required in PHP *ext* folder.  
