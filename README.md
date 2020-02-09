@@ -1,10 +1,8 @@
 # H3
 
-**Simple helper methods for Fatfree Framework powered apps**  
-
 https://github.com/r3sist/h3
 
-It's not recommended to use in production, this repository is for personal use only. 
+This repository is for personal use only. 
 
 [![Build Status](https://travis-ci.org/r3sist/h3.svg?branch=master)](https://travis-ci.org/r3sist/h3)
 
@@ -12,11 +10,7 @@ It's not recommended to use in production, this repository is for personal use o
 
 ## Installation
 
-Via composer: `"resist/H3": "dev-master"`
-
-## License
-
-GNU GPLv3
+Via composer: `"resist/h3": "dev-master"`
 
 ## Developer notes
 
@@ -38,3 +32,7 @@ Also *tests\php.ini* contains:
 ```ini
 extension=php_pcov.dll
 ```
+
+## License
+
+GNU GPLv3
