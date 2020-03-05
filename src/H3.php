@@ -30,11 +30,13 @@ class H3
         return \V3::clean($string, $pattern, $replacement);
     }
 
-    public static function dump($var): void
+    /** @param mixed */
+    public static function dump($var = false): void
     {
-//        echo '<pre>';
-//        var_dump($var);
-//        echo '</pre>';
+        if (!$var) {
+            $var = get_defined_vars();
+        }
+
         dump($var);
     }
 
