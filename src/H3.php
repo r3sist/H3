@@ -30,14 +30,14 @@ class H3
         return \V3::clean($string, $pattern, $replacement);
     }
 
-    /** @param mixed */
+    /** @param mixed $var */
     public static function dump($var = false): void
     {
-        if (!$var) {
+        if ($var === false) {
             $var = get_defined_vars();
         }
 
-        dump($var);
+        dump($var); // Symfony var-dumper
     }
 
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
