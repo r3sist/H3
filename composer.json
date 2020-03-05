@@ -8,9 +8,12 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "ext-json": "*",
-    "bcosca/fatfree-core": "3.*"
+    "bcosca/fatfree-core": "3.*",
+    "symfony/var-dumper": "*"
   },
   "require-dev": {
+    "roave/security-advisories": "dev-master"
+    ,
     "nette/tester": "2.*"
   },
   "autoload": {

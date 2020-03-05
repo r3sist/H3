@@ -32,9 +32,10 @@ class H3
 
     public static function dump($var): void
     {
-        echo '<pre>';
-        var_dump($var);
-        echo '</pre>';
+//        echo '<pre>';
+//        var_dump($var);
+//        echo '</pre>';
+        dump($var);
     }
 
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
