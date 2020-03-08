@@ -49,4 +49,11 @@ class Logger
             ':lip' => $this->f3->get('IP')
         ]);
     }
+
+    public function eraseLog(): void
+    {
+        $query = 'DELETE FROM '.self::TABLE.' WHERE 1';
+        $this->db->exec($query);
+        $this->create('success', 'Log erased');
+    }
 }
