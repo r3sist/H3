@@ -43,7 +43,7 @@ class Logger
         $this->db->exec($query, [
             ':uname' => ($this->f3->exists('uname')?$this->f3->get('uname'):''),
             ':llevel' => $level,
-            ':ltitle' => $this->f3->clean($subject),
+            ':lsubject' => $this->f3->clean($subject),
             ':lbody' => $message,
             ':lts' => time(),
             ':lip' => $this->f3->get('IP')
