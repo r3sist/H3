@@ -25,22 +25,26 @@ class Logger
         return new Mapper($this->db, self::TABLE);
     }
 
-    /** @param string|array $body */
-    public function create(string $group, string $title = '', $body = ''): void
+    /** @param string|array $message */
+    public function create(string $level, string $subject = '', $message = ''): void
     {
-        if (is_array($body)) {
+        if (is_array($message)) {
             try {
-                $body = json_encode($body, JSON_THROW_ON_ERROR, 512);
+                $message = json_encode($message, JSON_THROW_ON_ERROR, 512);
             } catch (JsonException $e) {
-                $body = 'ORIGINAL LOG MESSAGE LOST! '.$e->getMessage();
+                $message = 'ORIGINAL LOG MESSAGE LOST! '.$e->getMessage();
             }
         }
-        $query = 'INSERT INTO '.self::TABLE.' (uname, lgroup, ltitle, lbody, lts, lip) VALUES (:uname, :lgroup, :ltitle, :lbody, :lts, :lip)';
+
+        if (!in_array($level, ['info', 'warning', 'danger', 'success'])) {
+            $level = 'info';
+        }
+        $query = 'INSERT INTO '.self::TABLE.' (uname, llevel, lsubject, lbody, lts, lip) VALUES (:uname, :llevel, :lsubject, :lbody, :lts, :lip)';
         $this->db->exec($query, [
             ':uname' => ($this->f3->exists('uname')?$this->f3->get('uname'):''),
-            ':lgroup' => $this->f3->clean($group),
-            ':ltitle' => $this->f3->clean($title),
-            ':lbody' => $body,
+            ':llevel' => $level,
+            ':ltitle' => $this->f3->clean($subject),
+            ':lbody' => $message,
             ':lts' => time(),
             ':lip' => $this->f3->get('IP')
         ]);
