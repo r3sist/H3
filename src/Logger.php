@@ -5,10 +5,11 @@ namespace resist\H3;
 use \Base;
 use \DB\SQL;
 use \DB\SQL\Mapper;
+use JsonException;
 
 class Logger
 {
-    const TABLE = 'log';
+    private const TABLE = 'log';
 
     public Base $f3;
     private SQL $db;
@@ -30,7 +31,7 @@ class Logger
         if (is_array($body)) {
             try {
                 $body = json_encode($body, JSON_THROW_ON_ERROR, 512);
-            } catch (\JsonException $e) {
+            } catch (JsonException $e) {
                 $body = 'ORIGINAL LOG MESSAGE LOST! '.$e->getMessage();
             }
         }
