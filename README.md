@@ -12,6 +12,24 @@ This repository is for personal use only.
 
 Via composer: `"resist/h3": "dev-master"`
 
+# Logger
+
+```SQL
+CREATE TABLE IF NOT EXISTS `log` (
+  `lid` int(11) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `llevel` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'info',
+  `lsubject` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'general',
+  `lbody` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lts` int(11) NOT NULL,
+  `lip` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`lid`),
+  KEY `uname` (`uname`,`llevel`),
+  KEY `uname_2` (`uname`,`llevel`,`lsubject`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+COMMIT;
+```
+
 ## Developer notes
 
 ### Testing

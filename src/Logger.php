@@ -30,7 +30,7 @@ class Logger
     {
         if (is_array($message)) {
             try {
-                $message = json_encode($message, JSON_THROW_ON_ERROR, 512);
+                $message = json_encode($message, JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE, 512);
             } catch (JsonException $e) {
                 $message = 'ORIGINAL LOG MESSAGE LOST! '.$e->getMessage();
             }
