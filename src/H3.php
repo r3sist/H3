@@ -5,6 +5,12 @@
 
 class H3
 {
+    /** @param mixed $var */
+    public static function dump($var): void
+    {
+        echo '<pre>'.$var.'</pre>';
+    }
+
     public static function render(string $template): void
     {
         $regex = "/([^A-Za-z0-9_\\\\\-\/])+/u";
