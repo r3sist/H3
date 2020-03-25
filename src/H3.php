@@ -8,7 +8,9 @@ class H3
     /** @param mixed $var */
     public static function dump($var): void
     {
-        echo '<pre>'.$var.'</pre>';
+        echo '<pre>';
+        var_dump($var);
+        echo '</pre>';
     }
 
     public static function render(string $template): void
