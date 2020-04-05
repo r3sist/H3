@@ -105,7 +105,7 @@ class Validator
 
     public function isUrl200(string $url): bool
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (filter_var($url, FILTER_VALIDATE_URL) === false) {
             return false;
         }
 
