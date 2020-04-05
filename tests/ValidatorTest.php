@@ -79,3 +79,10 @@ Assert::exception(function () {
     $v = new Validator();
     $v->isIMDbId(9805708);
 }, TypeError::class);
+
+// Test filterSlug()
+Assert::type('string', $v->filterSlug('Lorem ipsum'));
+Assert::true($v->filterSlug('Lorem ipsum') === 'lorem-ipsum');
+Assert::true($v->filterSlug('árvíztűrő TÜKÖRFÚRÓGÉP') === 'arvizturo-tukorfurogep');
+Assert::true($v->filterSlug('<script>') === '-script-');
+Assert::true($v->filterSlug('%20') === '-20');
