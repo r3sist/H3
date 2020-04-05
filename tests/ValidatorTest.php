@@ -84,5 +84,16 @@ Assert::exception(function () {
 Assert::type('string', $v->filterSlug('Lorem ipsum'));
 Assert::true($v->filterSlug('Lorem ipsum') === 'lorem-ipsum');
 Assert::true($v->filterSlug('árvíztűrő TÜKÖRFÚRÓGÉP') === 'arvizturo-tukorfurogep');
-Assert::true($v->filterSlug('<script>') === '-script-');
-Assert::true($v->filterSlug('%20') === '-20');
+Assert::true($v->filterSlug('<script>') === 'script');
+Assert::true($v->filterSlug('%20') === '20');
+Assert::true($v->filterSlug(' ') === '');
+Assert::true($v->filterSlug('   ') === '');
+Assert::true($v->filterSlug('1 2 3 4 ') === '1-2-3-4');
+Assert::true($v->filterSlug('-1 2 3 4 -') === '1-2-3-4');
+
+// Test isSlug()
+Assert::true($v->isSlug('lorem-ipsum'));
+Assert::false($v->isSlug('-'));
+Assert::false($v->isSlug('Lorem Ipsum'));
+Assert::false($v->isSlug(''));
+Assert::false($v->isSlug(' '));

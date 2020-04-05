@@ -41,9 +41,9 @@ class Validator
         return false;
     }
 
-    public function isSlug(): bool
+    public function isSlug(string $slug): bool
     {
-
+        return $this->filterSlug($slug) === $slug;
     }
 
     /** Copyright Fatfree Framework: Web() */
