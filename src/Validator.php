@@ -23,4 +23,21 @@ class Validator
         }
         return $mathExpression === '' || (bool)preg_match("/^([a-zA-Z0-9 .,;<>+()=%^\-*\/])+$/i", $mathExpression);
     }
+
+    public function isJson(string $json): bool
+    {
+        json_decode($json);
+        return (json_last_error() === JSON_ERROR_NONE);
+    }
+
+    public function isIMDbId(string $id): bool
+    {
+        if (strpos($id, 'tt') === 0) {
+            $remained = explode('tt', $id);
+            if (count($remained) === 2 && is_numeric($remained[1])) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

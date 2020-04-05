@@ -2,11 +2,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use resist\H3\Validator;
 use Tester\Assert;
 
 Tester\Environment::setup();
 
-$v = new \resist\H3\Validator();
+$v = new Validator();
 
 // TEST ALPHANUMERIC-LIST
 Assert::type('bool', $v->isAlphanumericList(new \H3()));
@@ -64,3 +65,17 @@ Assert::false($v->isMath(null));
 Assert::false($v->isMath(true));
 Assert::false($v->isMath(false));
 Assert::false($v->isMath(new \H3()));
+
+// Test isIMDbId()
+Assert::type('bool', $v->isIMDbId('tt9805708'));
+Assert::type('bool', $v->isIMDbId('9805708'));
+Assert::true($v->isIMDbId('tt9805708'));
+Assert::false($v->isIMDbId('9805708'));
+Assert::false($v->isIMDbId('tt'));
+Assert::false($v->isIMDbId('dd9805708'));
+Assert::false($v->isIMDbId('tt980dd5708'));
+Assert::false($v->isIMDbId('tt980tt5708'));
+Assert::exception(function () {
+    $v = new Validator();
+    $v->isIMDbId(9805708);
+}, TypeError::class);
