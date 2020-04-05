@@ -102,4 +102,27 @@ class Validator
         ];
         return strtolower(trim(preg_replace('/([^\pL\pN])+/u', '-', trim(strtr($string, $diacritics))), '-'));
     }
+
+    public function isUrl200(string $url): bool
+    {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            return false;
+        }
+
+        $header = get_headers($url, 1);
+
+        if (is_array($header) !== true) {
+            return false;
+        }
+
+        if (in_array($header[0], ['HTTP/1.1 302 Found', 'HTTP/1.1 302 Moved Temporarily', 'HTTP/1.1 301 Moved Permanently'])) {
+            $header = get_headers($header['Location'], 0);
+
+            if (is_array($header) !== true) {
+                return false;
+            }
+        }
+
+        return $header[0] === 'HTTP/1.1 200 OK';
+    }
 }

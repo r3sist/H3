@@ -95,5 +95,14 @@ Assert::true($v->filterSlug('-1 2 3 4 -') === '1-2-3-4');
 Assert::true($v->isSlug('lorem-ipsum'));
 Assert::false($v->isSlug('-'));
 Assert::false($v->isSlug('Lorem Ipsum'));
-Assert::false($v->isSlug(''));
+Assert::true($v->isSlug(''));
 Assert::false($v->isSlug(' '));
+
+// Test isUrl200()
+Assert::true($v->isUrl200('https://httpstat.us/'));
+Assert::true($v->isUrl200('https://httpstat.us/200'));
+Assert::true($v->isUrl200('https://httpstat.us/301'));
+Assert::true($v->isUrl200('https://httpstat.us/302'));
+Assert::false($v->isUrl200('https://httpstat.us/404'));
+Assert::false($v->isUrl200('https://httpstat.us/500'));
+Assert::false($v->isUrl200('not url'));
