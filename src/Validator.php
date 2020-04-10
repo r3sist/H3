@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 // H3 - Validator - Simple true/false validator
 // (c) resist | https://github.com/r3sist/h3
 
