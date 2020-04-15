@@ -12,6 +12,40 @@ This repository is for personal use only.
 
 Via composer: `"resist/h3": "dev-master"`
 
+# Cache
+
+Key-value DB storage for Fatfree Framework powered apps.
+
+### Usage
+
+```php
+$ch = new \resist\H3\Cache(\DB\SQL $db);
+```
+
+Store data:  
+`cache(string $cacheName, string $data): void`
+
+Retrieve data:  
+`getData(string $cacheName): string`
+
+Get last modified timestamp:  
+`getModified(string $cacheName): int`
+
+### Scheme
+
+Uses `cache` table.
+
+```mysql
+CREATE TABLE IF NOT EXISTS `cache` (
+  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `modified` int(11) DEFAULT 0,
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+COMMIT;
+```
+
 # Logger
 
 ```SQL
