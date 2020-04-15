@@ -6,85 +6,58 @@ use DB\SQL;
 use DB\SQL\Mapper;
 use Prefab;
 
-/** @deprecated Try not to use this class */
 class Cache extends Prefab
 {
-    const TABLE = 'cache';
+    const CACHE_DEAFULT_TABLE = 'cache';
 
-    private SQL $db;
     public Mapper $map;
     
     public function __construct(SQL $db)
     {
-        $this->db = $db;
-        $this->map = new Mapper($this->db, self::TABLE);
+        $this->map = new Mapper($db, self::CACHE_DEAFULT_TABLE);
     }
 
-    /** @param mixed $data */
-    public function create(string $cacheName, $data, int $cacheCol = 1): void
+    public function cache(string $cacheName, string $data): void
     {
-        if (!in_array($cacheCol, [1, 2, 3, 4])) {
-            throw new \Exception('Invalid cache col id');
-        }
-
         if (ctype_alnum($cacheName) !== true) {
             throw new \Exception('Invalid cache name');
         }
         
-        $this->map->load(['chid=?', $cacheName]);
+        $this->map->load(['name=?', $cacheName]);
+
         if (!$this->map->dry()) {
-            switch ($cacheCol) {
-                case 1:
-                    $this->map->chd1 = $data;
-                    break;
-                case 2:
-                    $this->map->chd2 = $data;
-                    break;
-                case 3:
-                    $this->map->chd3 = $data;
-                    break;
-                case 4:
-                    $this->map->chd4 = $data;
-                    break;
-            }
-            $this->map->chmod = time();
+            $this->map->data = $data;
+            $this->map->modified = time();
             $this->map->update();
             $this->map->reset();
         } else {
             $this->map->reset();
-            switch ($cacheCol) {
-                case 1:
-                    $this->map->chd1 = $data;
-                    break;
-                case 2:
-                    $this->map->chd2 = $data;
-                    break;
-                case 3:
-                    $this->map->chd3 = $data;
-                    break;
-                case 4:
-                    $this->map->chd4 = $data;
-                    break;
-            }
-            $this->map->chmod = time();
-            $this->map->chid = $cacheName;
+            $this->map->name = $cacheName;
+            $this->map->data = $data;
+            $this->map->modified = time();
             $this->map->save();
         }
     }
 
-    public function read(string $cacheName): array
+    public function getData(string $cacheName): string
     {
-        $this->map->load(['chid=?', $cacheName]);
+        $this->map->load(['name=?', $cacheName]);
+
         if (!$this->map->dry()) {
-            return [
-                1 => $this->map->chd1,
-                2 => $this->map->chd2,
-                3 => $this->map->chd3,
-                4 => $this->map->chd4,
-                5 => $this->map->chmod
-            ];
+            return $this->map->data;
         }
 
-        return [];
-    }    
+        return '';
+    }
+
+    public function getModified(string $cacheName): int
+    {
+        $this->map->load(['name=?', $cacheName]);
+
+        if (!$this->map->dry()) {
+            return (int)$this->map->modified;
+        }
+
+        return 0;
+    }
 }
