@@ -2,9 +2,9 @@
 
 namespace resist\H3;
 
-use \Base;
-use \DB\SQL;
-use \DB\SQL\Mapper;
+use Base;
+use DB\SQL;
+use DB\SQL\Mapper;
 use JsonException;
 
 class Logger
@@ -20,14 +20,22 @@ class Logger
         $this->db = $db;
     }
 
-    public function getMap()
+    public function getMap(string $table = self::TABLE): Mapper
     {
-        return new Mapper($this->db, self::TABLE);
+        if (!ctype_alnum($table)) {
+            throw new \Exception('Invalid log table name.');
+        }
+
+        return new Mapper($this->db, $table);
     }
 
     /** @param string|array $message */
-    public function create(string $level, string $subject = '', $message = ''): void
+    public function create(string $level, string $subject = '', $message = '', string $table = self::TABLE): void
     {
+        if (!ctype_alnum($table)) {
+            throw new \Exception('Invalid log table name.');
+        }
+
         if (is_array($message)) {
             try {
                 $message = json_encode($message, JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE, 512);
@@ -37,9 +45,10 @@ class Logger
         }
 
         if (!in_array($level, ['info', 'warning', 'danger', 'success'])) {
-            $level = 'info';
+            $level = 'danger';
         }
-        $query = 'INSERT INTO '.self::TABLE.' (uname, llevel, lsubject, lbody, lts, lip) VALUES (:uname, :llevel, :lsubject, :lbody, :lts, :lip)';
+
+        $query = 'INSERT INTO '.$table.' (uname, llevel, lsubject, lbody, lts, lip) VALUES (:uname, :llevel, :lsubject, :lbody, :lts, :lip)';
         $this->db->exec($query, [
             ':uname' => ($this->f3->exists('uname')?$this->f3->get('uname'):''),
             ':llevel' => $level,
@@ -50,9 +59,13 @@ class Logger
         ]);
     }
 
-    public function eraseLog(): void
+    public function eraseLog(string $table = self::TABLE): void
     {
-        $query = 'DELETE FROM '.self::TABLE.' WHERE 1';
+        if (!ctype_alnum($table)) {
+            throw new \Exception('Invalid log table name.');
+        }
+
+        $query = 'DELETE FROM '.$table.' WHERE 1';
         $this->db->exec($query);
         $this->create('success', 'Log erased');
     }

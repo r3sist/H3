@@ -4,34 +4,41 @@ https://github.com/r3sist/h3
 
 This repository is for personal use only. 
 
-[![Build Status](https://travis-ci.org/r3sist/h3.svg?branch=master)](https://travis-ci.org/r3sist/h3)
-
----
-
 ## Installation
 
 Via composer: `"resist/h3": "dev-master"`
 
+---
+
 # Cache
 
-Key-value DB storage for Fatfree Framework powered apps.
+Simple key-value DB storage for Fatfree Framework powered apps.
 
-### Usage
+## Usage
 
 ```php
-$ch = new \resist\H3\Cache(\DB\SQL $db);
+new \resist\H3\Cache(\DB\SQL $db)
 ```
 
-Store data:  
-`cache(string $cacheName, string $data): void`
+###### Store data
 
-Retrieve data:  
-`getData(string $cacheName): string`
+```php
+cache(string $cacheName, string $data): void
+```
 
-Get last modified timestamp:  
-`getModified(string $cacheName): int`
+###### Retrieve data
 
-### Scheme
+```php
+getData(string $cacheName): string
+```
+
+###### Get last modified timestamp
+
+```php
+getModified(string $cacheName): int
+```
+
+## Scheme
 
 Uses `cache` table.
 
@@ -46,7 +53,45 @@ CREATE TABLE IF NOT EXISTS `cache` (
 COMMIT;
 ```
 
+---
+
 # Logger
+
+Simple log-to-DB solution for Fatfree Framework powered apps.
+
+## Usage
+
+```php
+new \resist\H3\Logger(\Base $f3, \DB\SQL $db)
+```
+
+###### Create entry
+ 
+```php
+create(string $level, string $subject = '', string|array $message = '', string $table = 'log'): void
+```
+
+If `$level` not in `['info', 'warning', 'danger', 'success']`, *warning* used.
+
+`uname` field is `$f3->uname` if exists - which is global variable by [Auth3](https://github.com/r3sist/Auth3).
+
+Array `$message` converted to JSON.
+
+###### Get F3 mapper object
+
+```php
+getMap(string $table = 'log'): Mapper
+```
+
+##### Erase all
+
+```php
+eraseLog(string $table = 'log'): void
+```
+
+## Scheme
+
+Default table: `log`
 
 ```SQL
 CREATE TABLE IF NOT EXISTS `log` (
@@ -58,22 +103,23 @@ CREATE TABLE IF NOT EXISTS `log` (
   `lts` int(11) NOT NULL,
   `lip` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`lid`),
-  KEY `uname` (`uname`,`llevel`),
-  KEY `uname_2` (`uname`,`llevel`,`lsubject`)
+  KEY `uname` (`uname`,`llevel`,`lsubject`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 ```
 
-## Developer notes
+---
 
-### Testing
+# Developer notes
+
+## Testing
 
 https://tester.nette.org/en/guide 
 
 Windows:  
 `.\vendor\bin\tester tests`
 
-#### Code coverage generation setup
+### Code coverage generation setup
 
 Windows:  
 `.\vendor\bin\tester -c tests/php.ini --coverage coverage.html`
