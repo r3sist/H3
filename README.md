@@ -126,7 +126,7 @@ new \resist\H3\Json(\Web $web, \Audit $audit)
 getJsonFromUrlAsArray(string $url): array
 ```
 
-Returns associative array, or empty array if `null` returned from API request. Throws `\Exception` on JSON or request errors.
+Returns an associative array, or an empty array if `null` returned from API request. Throws `\Exception` on JSON or request errors.
 
 # Developer notes
 
