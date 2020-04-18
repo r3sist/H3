@@ -88,7 +88,7 @@ class H3
     public static function getJson(string $url): array
     {
         $json = new \resist\H3\Json(\Web::instance());
-        return $json->getJsonAsArray($url);
+        return $json->getJsonFromUrlAsArray($url);
     }
 
     public static function n0(float $number): int

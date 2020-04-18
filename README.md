@@ -110,6 +110,24 @@ COMMIT;
 
 ---
 
+# Json
+
+API helper for Fatfree Framework powered apps.
+
+```php
+new \resist\H3\Json(\Web $web, \Audit $audit)
+```
+
+## Usage
+
+###### Request JSON API as array
+
+```php
+getJsonFromUrlAsArray(string $url): array
+```
+
+Returns associative array, or empty array if `null` returned from API request. Throws `\Exception` on JSON or request errors.
+
 # Developer notes
 
 ## Testing

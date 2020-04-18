@@ -5,32 +5,35 @@
 
 namespace resist\H3;
 
-use \Web;
-use \Exception;
+use Audit;
+use Web;
+use Exception;
 
 class Json
 {
     private Web $web;
 
-    public function __construct(Web $web)
+    public function __construct(Web $web, Audit $audit)
     {
         $this->web = $web;
+        $this->audit = $audit;
     }
 
-    public function getJsonAsArray(string $url): array
+    public function getJsonFromUrlAsArray(string $url): array
     {
-//        if (filter_var($url, FILTER_VALIDATE_URL) !== true) {
-//            throw new Exception('getJson error - not valid url: '.$url);
-//        }
+        if (!$this->audit->url($url)) {
+            throw new Exception('Not valid url: '.$url);
+        }
 
         $response = $this->web->request($url);
 
         if ($response['error']) {
-            throw new Exception('getJson error: '.$response['error'].' '.$url);
+            throw new Exception('Url error: '.$response['error'].' '.$url);
         }
 
-        $data = json_decode($response['body'], true);
-        if (is_null($data)) {
+        $data = json_decode($response['body'], true, 512, JSON_THROW_ON_ERROR);
+
+        if ($data === null) {
             return [];
         }
 
