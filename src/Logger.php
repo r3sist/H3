@@ -59,13 +59,21 @@ class Logger
         ]);
     }
 
-    public function eraseLog(string $table = self::TABLE): void
+    public function eraseLog(string $table = self::TABLE, int $time = 0): void
     {
         if (!ctype_alnum($table)) {
             throw new \Exception('Invalid log table name.');
         }
 
-        $query = 'DELETE FROM '.$table.' WHERE 1';
+        $where = '1';
+        $log = '(all)';
+
+        if ($time > 0) {
+            $where = 'lts < '.$time;
+            $log = '( < '.date('Y.m.d', $time).')';
+        }
+
+        $query = 'DELETE FROM '.$table.' WHERE '.$where;
         $this->db->exec($query);
         $this->create('success', 'Log erased');
     }
