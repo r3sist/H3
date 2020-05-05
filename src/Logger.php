@@ -75,6 +75,6 @@ class Logger
 
         $query = 'DELETE FROM '.$table.' WHERE '.$where;
         $this->db->exec($query);
-        $this->create('success', 'Log erased');
+        $this->create('success', 'Log ('.$table.') erased. '.$log);
     }
 }
