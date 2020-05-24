@@ -6,6 +6,7 @@ use Base;
 use DB\SQL;
 use DB\SQL\Mapper;
 use JsonException;
+use resist\H3\Exception\InvalidLogTableNameException;
 
 class Logger
 {
@@ -20,20 +21,26 @@ class Logger
         $this->db = $db;
     }
 
+    /**
+     * @throws InvalidLogTableNameException
+     */
     public function getMap(string $table = self::TABLE): Mapper
     {
         if (!ctype_alnum($table)) {
-            throw new \Exception('Invalid log table name.');
+            throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
         return new Mapper($this->db, $table);
     }
 
-    /** @param string|array $message */
+    /**
+     * @param string|array $message
+     * @throws InvalidLogTableNameException
+     */
     public function create(string $level, string $subject = '', $message = '', string $table = self::TABLE): void
     {
         if (!ctype_alnum($table)) {
-            throw new \Exception('Invalid log table name.');
+            throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
         if (is_array($message)) {
@@ -59,10 +66,13 @@ class Logger
         ]);
     }
 
+    /**
+     * @throws InvalidLogTableNameException
+     */
     public function eraseLog(string $table = self::TABLE, int $time = 0): void
     {
         if (!ctype_alnum($table)) {
-            throw new \Exception('Invalid log table name.');
+            throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
         $where = '1';
