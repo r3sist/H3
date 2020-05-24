@@ -2,25 +2,29 @@
 
 namespace resist\H3;
 
+use Prefab;
 use DB\SQL;
 use DB\SQL\Mapper;
-use Prefab;
+use resist\H3\Exception\InvalidCacheNameException;
 
 class Cache extends Prefab
 {
-    const CACHE_DEAFULT_TABLE = 'cache';
+    private const CACHE_DEFAULT_TABLE = 'cache';
 
     public Mapper $map;
     
     public function __construct(SQL $db)
     {
-        $this->map = new Mapper($db, self::CACHE_DEAFULT_TABLE);
+        $this->map = new Mapper($db, self::CACHE_DEFAULT_TABLE);
     }
 
+    /**
+     * @throws InvalidCacheNameException
+     */
     public function cache(string $cacheName, string $data): void
     {
         if (ctype_alnum($cacheName) !== true) {
-            throw new \Exception('Invalid cache name');
+            throw new InvalidCacheNameException('Cache name should be alnum. Given: '.$cacheName);
         }
         
         $this->map->load(['name=?', $cacheName]);
