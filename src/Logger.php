@@ -8,11 +8,15 @@ use DB\SQL\Mapper;
 use JsonException;
 use resist\H3\Exception\InvalidLogTableNameException;
 
+/**
+ * Class Logger
+ * @package resist\H3
+ */
 class Logger
 {
     private const TABLE = 'log';
 
-    public Base $f3;
+    private Base $f3;
     private SQL $db;
 
     public function __construct(Base $f3, SQL $db)
