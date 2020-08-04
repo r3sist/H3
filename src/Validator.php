@@ -125,4 +125,13 @@ class Validator
 
         return $header[0] === 'HTTP/1.1 200 OK';
     }
+
+    public function isVariableName(string $string): bool
+    {
+        if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $string)) {
+            return true;
+        }
+
+        return false;
+    }
 }
