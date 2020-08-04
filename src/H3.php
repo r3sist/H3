@@ -3,6 +3,8 @@
 // Static helpers
 // (c) resist | https://github.com/r3sist/h3
 
+use resist\H3\Md;
+
 class H3
 {
     /** @param mixed $var */
@@ -28,14 +30,6 @@ class H3
             $key .= $characters[random_int(0, strlen($characters) - 1)];
          }
          return (string)$key;
-    }
-
-    /**
-     * @deprecated Use proper validation instead
-     */
-    public static function clean($string, $pattern = '', $replacement = ''): string
-    {
-        return \V3::clean($string, $pattern, $replacement);
     }
 
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
@@ -125,8 +119,7 @@ class H3
      */
     public static function makeMdStrict(string $string, string $allowedTags = ''): string
     {
-        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
-        return $md->makeOneLine($string);
+        return (new Md(\Base::instance(), \Markdown::instance()))->makeOneLine($string);
     }
 
     /**
@@ -137,8 +130,7 @@ class H3
      */
     public static function makeMdLight(string $string): string
     {
-        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
-        return $md->makeWithoutHtml($string);
+        return (new Md(\Base::instance(), \Markdown::instance()))->makeWithoutHtml($string);
     }
 
     /**
@@ -148,8 +140,7 @@ class H3
      */
     public static function makeMd(string $string): string
     {
-        $md = new \resist\H3\Md(\Base::instance(), \Markdown::instance());
-        return $md->makeMd($string);
+        return (new Md(\Base::instance(), \Markdown::instance()))->makeMd($string);
     }
 
     /** @param int|float|string $string */
