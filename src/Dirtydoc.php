@@ -211,7 +211,6 @@ class Dirtydoc
             }
         }
 
-
         return $md;
     }
 
