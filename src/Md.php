@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * H3/Logger - Markdown helpers.
+ * H3/Md - Markdown helpers.
  * (c) 2020 resist | https://resist.hu | https://github.com/r3sist/h3
  */
 
@@ -9,6 +9,7 @@ namespace resist\H3;
 use Base;
 use Markdown;
 
+/** Markdown helpers */
 class Md
 {
     private Base $f3;

@@ -1,12 +1,35 @@
 # H3
 
+Helper classes for [Fatfree Framework](https://fatfreeframework.com) powered apps.
+
 https://github.com/r3sist/h3
 
-This repository is for personal use only. 
+resist 2020 | https://resist.hu | https://github.com/r3sist/h3
+
+This repository is for personal use. 
 
 ## Installation
 
 Via composer: `"resist/h3": "dev-master"`
+
+## Run "tests"
+
+https://tester.nette.org/en/guide 
+
+Windows:  
+`.\vendor\bin\tester tests`
+
+## License
+
+GNU GPLv3
+
+---
+
+# Atom
+
+Simple atom feed parser.
+
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Atom)**
 
 ---
 
@@ -14,35 +37,11 @@ Via composer: `"resist/h3": "dev-master"`
 
 Simple key-value DB storage for Fatfree Framework powered apps.
 
-## Usage
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Cache)**
 
-```php
-new \resist\H3\Cache(\DB\SQL $db)
-```
+Scheme of `cache` table:
 
-###### Store data
-
-```php
-cache(string $cacheName, string $data): void
-```
-
-###### Retrieve data
-
-```php
-getData(string $cacheName): string
-```
-
-###### Get last modified timestamp
-
-```php
-getModified(string $cacheName): int
-```
-
-## Scheme
-
-Uses `cache` table.
-
-```mysql
+```SQL
 CREATE TABLE IF NOT EXISTS `cache` (
   `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `data` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -55,43 +54,41 @@ COMMIT;
 
 ---
 
+# Dirtydoc
+
+Quick markdown documentation of class public methods.
+
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Dirtydoc)**
+
+Usage: see *[dd.php](https://github.com/r3sist/h3/blob/master/dd.php)* in this repository.
+
+---
+
+# H3
+
+Static helpers for Fatfree Framework.
+
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#H3)**
+
+---
+
+---
+
+# Json
+
+Json helpers.
+
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Json)**
+
+---
+
 # Logger
 
 Simple log-to-DB solution for Fatfree Framework powered apps.
 
-## Usage
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Logger)**
 
-```php
-new \resist\H3\Logger(\Base $f3, \DB\SQL $db)
-```
-
-###### Create entry
- 
-```php
-create(string $level, string $subject = '', string|array $message = '', string $table = 'log'): void
-```
-
-If `$level` not in `['info', 'warning', 'danger', 'success']`, *warning* used.
-
-`uname` field is `$f3->uname` if exists - which is global variable by [Auth3](https://github.com/r3sist/Auth3).
-
-Array `$message` converted to JSON.
-
-###### Get F3 mapper object
-
-```php
-getMap(string $table = 'log'): Mapper
-```
-
-##### Erase all
-
-```php
-eraseLog(string $table = 'log'): void
-```
-
-## Scheme
-
-Default table: `log`
+Default `log` table scheme:
 
 ```SQL
 CREATE TABLE IF NOT EXISTS `log` (
@@ -110,45 +107,22 @@ COMMIT;
 
 ---
 
-# Json
+# Md
 
-API helper for Fatfree Framework powered apps.
+Markdown helpers.
 
-```php
-new \resist\H3\Json(\Web $web, \Audit $audit)
-```
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Md)**
 
-## Usage
+---
 
-###### Request JSON API as array
+# Tester
 
-```php
-getJsonFromUrlAsArray(string $url): array
-```
+DEPRECATED Fatfree Framework Test helper.
 
-Returns an associative array, or an empty array if `null` returned from API request. Throws `\Exception` on JSON or request errors.
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Tester)**
 
-# Developer notes
+---
 
-## Testing
+# Validator
 
-https://tester.nette.org/en/guide 
-
-Windows:  
-`.\vendor\bin\tester tests`
-
-### Code coverage generation setup
-
-Windows:  
-`.\vendor\bin\tester -c tests/php.ini --coverage coverage.html`
-
-PCOV (*php_pcov.dll*) is required in PHP *ext* folder.  
-Also *tests\php.ini* contains:
-
-```ini
-extension=php_pcov.dll
-```
-
-## License
-
-GNU GPLv3
+**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Validator)**

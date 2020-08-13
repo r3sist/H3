@@ -1,30 +1,36 @@
 <?php declare(strict_types=1);
+/**
+ * H3/Cache - Simple key-value DB storage for Fatfree Framework powered apps
+ * (c) 2020 resist | https://resist.hu | https://github.com/r3sist/h3
+ */
 
 namespace resist\H3;
 
-use Prefab;
 use DB\SQL;
 use DB\SQL\Mapper;
 use resist\H3\Exception\InvalidCacheNameException;
 
-class Cache extends Prefab
+/** H3/Cache - Simple key-value DB storage for Fatfree Framework powered apps */
+class Cache
 {
     private const CACHE_DEFAULT_TABLE = 'cache';
 
-    public Mapper $map;
-    
+    private Mapper $map;
+
+    /** @param SQL $db Fatfree Framework: DB\SQL */
     public function __construct(SQL $db)
     {
         $this->map = new Mapper($db, self::CACHE_DEFAULT_TABLE);
     }
 
     /**
+     * Stores string data to given cache-name
      * @throws InvalidCacheNameException
      */
     public function cache(string $cacheName, string $data): void
     {
         if (ctype_alnum($cacheName) !== true) {
-            throw new InvalidCacheNameException('Cache name should be alnum. Given: '.$cacheName);
+            throw new InvalidCacheNameException('Cache name should be alpha-numeric. Given: '.$cacheName);
         }
         
         $this->map->load(['name=?', $cacheName]);
@@ -43,6 +49,7 @@ class Cache extends Prefab
         }
     }
 
+    /** Returns data as string for given cache-name */
     public function getData(string $cacheName): string
     {
         $this->map->load(['name=?', $cacheName]);
@@ -54,6 +61,7 @@ class Cache extends Prefab
         return '';
     }
 
+    /** Returns last modified timestamp for given cache-name */
     public function getModified(string $cacheName): int
     {
         $this->map->load(['name=?', $cacheName]);

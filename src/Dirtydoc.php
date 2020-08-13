@@ -15,13 +15,12 @@ use ReflectionMethod;
 use ReflectionProperty;
 use RuntimeException;
 
+/** H3/Dirtydoc - Quick markdown documentation of class public methods */
 class Dirtydoc
 {
     private ReflectionClass $reflection;
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     public function __construct(string $classNameWithNamespace)
     {
         $this->reflection = new ReflectionClass($this->verifyClassName($classNameWithNamespace));
@@ -37,9 +36,7 @@ class Dirtydoc
         return $this->reflection->getShortName();
     }
 
-    /**
-     * @throws JsonException|ReflectionException
-     */
+    /** @throws JsonException|ReflectionException */
     public function getClassMatrix(): array {
         return [
             'namespace' => $this->getNamespace(),
@@ -67,17 +64,13 @@ class Dirtydoc
         return array_column($properties, 'name');
     }
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     public function getPropertyType(string $propertyName): string
     {
         return $this->reflection->getProperty($propertyName)->getType()->getName()??'';
     }
 
-    /**
-     * @throws JsonException|ReflectionException
-     */
+    /** @throws JsonException|ReflectionException */
     public function getMethodParameterMatrix(string $methodName): array
     {
         $parameterMatrix = [];
@@ -117,9 +110,7 @@ class Dirtydoc
         return $parameterMatrix;
     }
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     public function getMethodReturnType(string $methodName): string
     {
         $type = $this->reflection->getMethod($methodName)->getReturnType();
@@ -130,17 +121,13 @@ class Dirtydoc
         return '';
     }
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     public function getMethodParsedDocblock(string $methodName): array
     {
         return $this->parseMethodDocblock($this->getMethodDocblock($methodName));
     }
 
-    /**
-     * @throws JsonException|ReflectionException
-     */
+    /** @throws JsonException|ReflectionException */
     public function getMarkdownDocumentation(): string
     {
         // Header
@@ -222,9 +209,7 @@ class Dirtydoc
         return $md;
     }
 
-    /**
-     * @throws JsonException|ReflectionException
-     */
+    /** @throws JsonException|ReflectionException */
     public function generateMarkdownFile(string $fileName): void
     {
         file_put_contents($fileName, $this->getMarkdownDocumentation());
@@ -271,9 +256,7 @@ class Dirtydoc
         return $result;
     }
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     private function getMethodDocblock(string $methodName): string
     {
         return $this->reflection->getMethod($methodName)->getDocComment();

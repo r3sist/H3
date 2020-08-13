@@ -1,13 +1,18 @@
-<?php
-// H3 - Helpers for Fatfree Framework
-// Stupid CLI Test handler
-// (c) resist | https://github.com/r3sist/h3
+<?php declare(strict_types=1);
+
+/**
+ * H3/Tester - Fatfree Framework Test helper
+ * (c) 2020 resist | https://resist.hu | https://github.com/r3sist/h3
+ */
 
 namespace resist\H3;
 
 use Test;
 
-/** @deprecated */
+/**
+ * Fatfree Framework Test helper
+ * @deprecated
+ */
 class Tester extends Test
 {
     public function show(): void

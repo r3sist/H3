@@ -1,12 +1,15 @@
 <?php declare(strict_types=1);
-// H3 - Validator - Simple true/false validator
-// (c) resist | https://github.com/r3sist/h3
+/**
+ * H3/Validator - Simple true/false validator
+ * (c) 2020 resist | https://resist.hu | https://github.com/r3sist/h3
+ */
 
 namespace resist\H3;
 
+/** Simple true/false validator */
 class Validator
 {
-    /** May be empty string or contain: a-zA-Z0-9 space , ; . */
+    /** @param mixed $value Can be empty string or contain: a-zA-Z0-9 space , ; . */
     public function isAlphanumericList($value): bool
     {
         if ($value === true || is_object($value)) {
@@ -15,7 +18,7 @@ class Validator
         return $value === '' || (bool)preg_match("/^([a-zA-Z0-9 ,;.|])+$/i", $value);
     }
 
-    /** May be empty string or contain: a-zA-Z0-9 space .,;<>+()=%^*-/ */
+    /** @param mixed $mathExpression Can be empty string or contain: a-zA-Z0-9 space asterisk .,;<>+()=%^-/ */
     public function isMath($mathExpression): bool
     {
         if ($mathExpression === true || is_object($mathExpression)) {
@@ -46,7 +49,10 @@ class Validator
         return $this->filterSlug($slug) === $slug;
     }
 
-    /** Copyright Fatfree Framework: Web() */
+    /**
+     * Returns slug
+     * Copyright Fatfree Framework: Web()
+     */
     public function filterSlug(string $string): string
     {
         $diacritics = [
@@ -105,6 +111,7 @@ class Validator
 
     public function isUrl200(string $url): bool
     {
+        // URL filter is not UTF-8 ready; Also not validating protocol and vulnerable to JS injections and arbitrary files loading
         if (filter_var($url, FILTER_VALIDATE_URL) === false) {
             return false;
         }
@@ -135,6 +142,7 @@ class Validator
         return false;
     }
 
+    /** @param mixed $value Can be HTML named color or #hexa */
     public function isColor($value): bool
     {
         $css3Colors = ['black', 'navy', 'darkblue', 'mediumblue', 'blue', 'darkgreen', 'green', 'teal', 'darkcyan', 'deepskyblue', 'darkturquoise', 'mediumspringgreen', 'lime', 'springgreen', 'aqua', 'cyan', 'midnightblue', 'dodgerblue', 'lightseagreen', 'forestgreen', 'seagreen', 'darkslategray', 'darkslategrey', 'limegreen', 'mediumseagreen', 'turquoise', 'royalblue', 'steelblue', 'darkslateblue', 'mediumturquoise', 'indigo', 'darkolivegreen', 'cadetblue', 'cornflowerblue', 'rebeccapurple', 'mediumaquamarine', 'dimgray', 'dimgrey', 'slateblue', 'olivedrab', 'slategray', 'slategrey', 'lightslategray', 'lightslategrey', 'mediumslateblue', 'lawngreen', 'chartreuse', 'aquamarine', 'maroon', 'purple', 'olive', 'gray', 'grey', 'skyblue', 'lightskyblue', 'blueviolet', 'darkred', 'darkmagenta', 'saddlebrown', 'darkseagreen', 'lightgreen', 'mediumpurple', 'darkviolet', 'palegreen', 'darkorchid', 'yellowgreen', 'sienna', 'brown', 'darkgray', 'darkgrey', 'lightblue', 'greenyellow', 'paleturquoise', 'lightsteelblue', 'powderblue', 'firebrick', 'darkgoldenrod', 'mediumorchid', 'rosybrown', 'darkkhaki', 'silver', 'mediumvioletred', 'indianred', 'peru', 'chocolate', 'tan', 'lightgray', 'lightgrey', 'thistle', 'orchid', 'goldenrod', 'palevioletred', 'crimson', 'gainsboro', 'plum', 'burlywood', 'lightcyan', 'lavender', 'darksalmon', 'violet', 'palegoldenrod', 'lightcoral', 'khaki', 'aliceblue', 'honeydew', 'azure', 'sandybrown', 'wheat', 'beige', 'whitesmoke', 'mintcream', 'ghostwhite', 'salmon', 'antiquewhite', 'linen', 'lightgoldenrodyellow', 'oldlace', 'red', 'fuchsia', 'magenta', 'deeppink', 'orangered', 'tomato', 'hotpink', 'coral', 'darkorange', 'lightsalmon', 'orange', 'lightpink', 'pink', 'gold', 'peachpuff', 'navajowhite', 'moccasin', 'bisque', 'mistyrose', 'blanchedalmond', 'papayawhip', 'lavenderblush', 'seashell', 'cornsilk', 'lemonchiffon', 'floralwhite', 'snow', 'yellow', 'lightyellow', 'ivory', 'white'];

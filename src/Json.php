@@ -1,7 +1,8 @@
-<?php
-// H3 - Helpers for Fatfree Framework
-// Json helpers
-// (c) resist | https://github.com/r3sist/h3
+<?php declare(strict_types=1);
+/**
+ * H3/Json - Json helpers
+ * (c) 2020 resist | https://resist.hu | https://github.com/r3sist/h3
+ */
 
 namespace resist\H3;
 
@@ -10,17 +11,27 @@ use Web;
 use JsonException;
 use Exception;
 
+/** Json helpers */
 class Json
 {
     private Web $web;
     private Audit $audit;
 
+    /**
+     * @param Web $web Fatfree Framework: Web
+     * @param Audit $audit Fatfree Framework: Audit
+     */
     public function __construct(Web $web, Audit $audit)
     {
         $this->web = $web;
         $this->audit = $audit;
     }
 
+    /**
+     * API helper
+     * @throws JsonException|Exception
+     * @return array Empty if null returned from API request
+     */
     public function getJsonFromUrlAsArray(string $url): array
     {
         if (!$this->audit->url($url)) {
