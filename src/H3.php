@@ -3,6 +3,7 @@
 // Static helpers
 // (c) resist | https://github.com/r3sist/h3
 
+use resist\H3\Json;
 use resist\H3\Md;
 
 class H3
@@ -34,7 +35,7 @@ class H3
 
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
     {
-        if (strlen ($string) > 0) {
+        if ($string !== '') {
             if (strlen ($string) > $length) {
                 return substr($string, 0, $length).$extend;
             }
@@ -81,8 +82,7 @@ class H3
      */
     public static function getJson(string $url): array
     {
-        $json = new \resist\H3\Json(\Web::instance());
-        return $json->getJsonFromUrlAsArray($url);
+        return (new Json(Web::instance(), Audit::instance()))->getJsonFromUrlAsArray($url);
     }
 
     public static function n0(float $number): int
@@ -117,9 +117,9 @@ class H3
      * @param string $allowedTags // Comma separated list of allowed tags
      * @return string // Cleaned and converted output string
      */
-    public static function makeMdStrict(string $string, string $allowedTags = ''): string
+    public static function makeMdStrict(string $string): string
     {
-        return (new Md(\Base::instance(), \Markdown::instance()))->makeOneLine($string);
+        return (new Md(Base::instance(), Markdown::instance()))->makeOneLine($string);
     }
 
     /**
@@ -146,6 +146,6 @@ class H3
     /** @param int|float|string $string */
     public static function slug($string): string
     {
-        return \Web::instance()->slug((string)$string);
+        return Web::instance()->slug((string)$string);
     }
 }
