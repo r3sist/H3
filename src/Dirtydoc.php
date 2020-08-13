@@ -146,7 +146,13 @@ class Dirtydoc
         // Header
         $md = "# ".$this->getClassName()."\n\n";
 
-        $md .= "**".$this->getNamespace().'\\'.$this->getClassName()."**\n\n";
+        $md .= "**".$this->getNamespace().'\\'.$this->getClassName()."** ";
+
+        if ($this->reflection->getParentClass() !== false) {
+            $md .= 'extends **'.$this->reflection->getParentClass()->getName()."**";
+        }
+
+        $md .= "\n\n";
 
         $classDocblockData = $this->parseMethodDocblock($this->getClassDocblock());
         $md .= ($classDocblockData['description']?'> '.$classDocblockData['description']:'')."\n\n";
