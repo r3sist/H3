@@ -30,7 +30,7 @@ class H3
          for ($p = 0; $p < $length; $p++) {
             $key .= $characters[random_int(0, strlen($characters) - 1)];
          }
-         return (string)$key;
+         return $key;
     }
 
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
@@ -47,14 +47,14 @@ class H3
     /**
      * @deprecated Probably dead code
      */
-    public static function keyDown(array $array, $keyNumber): array
+    public static function keyDown(array $array, int $keyNumber): array
     {
         if (count($array)-1 > $keyNumber) {
-            $brray = array_slice($array,0,$keyNumber,true);
+            $brray = array_slice($array,0,$keyNumber, true);
             $brray[] = $array[$keyNumber+1];
             $brray[] = $array[$keyNumber];
-            $brray += array_slice($array,$keyNumber+2,count($array),true);
-            return((array)$brray);
+            $brray += array_slice($array, $keyNumber+2, count($array), true);
+            return $brray;
         }
 
         return $array;
@@ -63,14 +63,14 @@ class H3
     /**
      * @deprecated Probably dead code
      */
-    public static function keyUp(array $array, $keyNumber): array
+    public static function keyUp(array $array, int $keyNumber): array
     {
-        if ($keyNumber > 0 and $keyNumber < count($array)) {
-            $brray = array_slice($array,0,($keyNumber-1),true);
+        if ($keyNumber > 0 && $keyNumber < count($array)) {
+            $brray = array_slice($array, 0, ($keyNumber-1), true);
             $brray[] = $array[$keyNumber];
             $brray[] = $array[$keyNumber-1];
-            $brray += array_slice($array,($keyNumber+1),count($array),true);
-            return((array)$brray);
+            $brray += array_slice($array, ($keyNumber+1), count($array), true);
+            return $brray;
         }
 
         return $array;
