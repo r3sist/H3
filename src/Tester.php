@@ -5,12 +5,12 @@
 
 namespace resist\H3;
 
-use \Test;
+use Test;
 
 /** @deprecated */
 class Tester extends Test
 {
-    public function show()
+    public function show(): void
     {
         echo "\nTest results\n".str_repeat('=', 100)."\n";
         foreach ($this->results() as $result) {
