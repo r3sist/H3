@@ -22,7 +22,8 @@ class Atom
         if (filter_var($url, FILTER_VALIDATE_URL) !== false && $data = $this->web->request($url)) {
             libxml_use_internal_errors(true);
             $xml = simplexml_load_string($data['body'], 'SimpleXMLElement',LIBXML_NOBLANKS|LIBXML_NOERROR|LIBXML_NOCDATA);
-            return json_decode(json_encode((array)$xml), true);
+
+            return json_decode(json_encode((array)$xml, JSON_THROW_ON_ERROR), true, 512, JSON_THROW_ON_ERROR);
         }
         return [];
     }
