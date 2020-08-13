@@ -7,11 +7,13 @@ namespace resist\H3;
 
 use Audit;
 use Web;
+use JsonException;
 use Exception;
 
 class Json
 {
     private Web $web;
+    private Audit $audit;
 
     public function __construct(Web $web, Audit $audit)
     {
@@ -33,10 +35,6 @@ class Json
 
         $data = json_decode($response['body'], true, 512, JSON_THROW_ON_ERROR);
 
-        if ($data === null) {
-            return [];
-        }
-
-        return $data;
+        return $data ?? [];
     }
 }
