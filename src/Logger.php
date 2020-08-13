@@ -5,7 +5,6 @@ namespace resist\H3;
 use Base;
 use DB\SQL;
 use DB\SQL\Mapper;
-use JsonException;
 use resist\H3\Exception\InvalidLogTableNameException;
 
 /**
