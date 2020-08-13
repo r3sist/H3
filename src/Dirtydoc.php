@@ -171,7 +171,7 @@ class Dirtydoc
             $docblockData = $this->getMethodParsedDocBlock($methodName);
 
             $parameterMatrix = $this->getMethodParameterMatrix($methodName);
-            $md .= "### ".$methodName."()\n\n";
+            $md .= "### ".($this->reflection->getMethod($methodName)->isStatic()?'::':'').$methodName."()\n\n";
 
             if (isset($docblockData['deprecated'])) {
                 $md .= "**DEPRECATED** ".$docblockData['deprecated']."\n\n";
