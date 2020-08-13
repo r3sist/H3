@@ -146,10 +146,10 @@ class Dirtydoc
         // Header
         $md = "# ".$this->getClassName()."\n\n";
 
+        $md .= "**".$this->getNamespace().'\\'.$this->getClassName()."**\n\n";
+
         $classDocblockData = $this->parseMethodDocblock($this->getClassDocblock());
         $md .= ($classDocblockData['description']?'> '.$classDocblockData['description']:'')."\n\n";
-
-        $md .= "Auto generated public API documentation of class ***".$this->getNamespace().'\\'.$this->getClassName()."*** at ".date('Y.m.d.')."\n\n";
 
         // Public properties
         $properties = $this->getPublicPropertyList();
@@ -210,6 +210,8 @@ class Dirtydoc
 
             }
         }
+
+        $md .= "Auto generated public API documentation at ".date('Y.m.d.')."\n\n";
 
         return $md;
     }
