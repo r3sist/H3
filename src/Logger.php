@@ -36,7 +36,7 @@ class Logger
      */
     public function getMap(string $table = self::TABLE): Mapper
     {
-        if ($table !== self::TABLE && !ctype_alnum($table)) {
+        if (!ctype_alnum($table)) {
             throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
@@ -51,7 +51,7 @@ class Logger
      */
     public function create(string $level, string $subject = '', $message = '', string $table = self::TABLE): void
     {
-        if ($table !== self::TABLE && !ctype_alnum($table)) {
+        if (!ctype_alnum($table)) {
             throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
@@ -84,7 +84,7 @@ class Logger
      */
     public function eraseLog(string $table = self::TABLE, int $time = 0): void
     {
-        if ($table !== self::TABLE && !ctype_alnum($table)) {
+        if (!ctype_alnum($table)) {
             throw new InvalidLogTableNameException('Table name: '.$table);
         }
 
