@@ -53,7 +53,7 @@ class H3
     public static function shorten(string $string, int $length, string $extend = '&hellip;'): string
     {
         if ($string !== '') {
-            if (strlen ($string) > $length) {
+            if (strlen($string) > $length) {
                 return substr($string, 0, $length).$extend;
             }
 
