@@ -16,7 +16,7 @@ class Md
     private Markdown $md;
 
     private const ONE_LINE_TAGS = 'i,em,b,strong,a,code';
-    private const MULTI_LINE_TAGS = 'i,em,b,strong,a,code,ul,li,p,ol,h1,h2,h3,h4,h5,h6,hr,img';
+    private const MULTI_LINE_TAGS = 'i,em,b,strong,a,code,ul,li,p,ol,h1,h2,h3,h4,h5,h6,hr,img,blockquote';
 
     public function __construct(Base $f3, Markdown $md)
     {
