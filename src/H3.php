@@ -29,6 +29,9 @@ class H3
     {
         $regex = "/([^A-Za-z0-9_\\\\\-\/])+/u";
         $template = preg_replace($regex, '', $template);
+
+        header('HX-Trigger: {"'.(\Base::instance()->get('ALIAS')?:'settle').'": true}');
+
         echo \Template::instance()->render($template.'.html');
     }
 
