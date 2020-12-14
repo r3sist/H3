@@ -25,14 +25,22 @@ class H3
      * Renders template file via Fatfree Framework: Template
      * @param string $template Template file name without '.html'. E.g.: 'layout' or 'subdir/layout'
      */
-    public static function render(string $template): void
+    public static function render(string $templateName): void
     {
         $regex = "/([^A-Za-z0-9_\\\\\-\/])+/u";
-        $template = preg_replace($regex, '', $template);
+        $templateName = preg_replace($regex, '', $templateName);
 
         header('HX-Trigger: {"'.(\Base::instance()->get('ALIAS')?:'settle').'": true}');
 
-        echo \Template::instance()->render($template.'.html');
+        $template = \Template::instance();
+
+        $template->filter('n0',fn($value) => number_format($value, 0, '.', ''));
+        $template->filter('n1',fn($value) => number_format($value, 1, '.', ''));
+        $template->filter('n2',fn($value) => number_format($value, 2, '.', ''));
+        $template->filter('n3',fn($value) => number_format($value, 3, '.', ''));
+        $template->filter('n4',fn($value) => number_format($value, 4, '.', ''));
+
+        echo $template->render($templateName.'.html');
     }
 
     /**
