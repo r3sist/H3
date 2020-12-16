@@ -47,9 +47,20 @@ class Dirtydoc
         ];
     }
 
-    public function getPublicMethodList(): array
+    public function getPublicMethodList(bool $withExtended = false): array
     {
         $methods = $this->reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+
+        $ownMethods = [];
+        foreach ($methods as $method) {
+            if ($method->class === $this->reflection->name) {
+                $ownMethods[] = $method;
+            }
+        }
+
+        if ($withExtended === false) {
+            $methods = $ownMethods;
+        }
 
         $methodNames = array_column($methods, 'name');
         sort($methodNames);
@@ -133,10 +144,10 @@ class Dirtydoc
         // Header
         $md = "# ".$this->getClassName()."\n\n";
 
-        $md .= "**".$this->getNamespace().'\\'.$this->getClassName()."** ";
+        $md .= "***".$this->getNamespace().'\\'.$this->getClassName()."*** ";
 
         if ($this->reflection->getParentClass() !== false) {
-            $md .= 'extends **'.$this->reflection->getParentClass()->getName()."**";
+            $md .= 'extends ***'.$this->reflection->getParentClass()->getName()."***";
         }
 
         $md .= "\n\n";
@@ -157,10 +168,11 @@ class Dirtydoc
         }
 
         // Public methods
-        $methods = $this->getPublicMethodList();
+        $ownMethodNames = $this->getPublicMethodList();
+
         $md .= "## Public methods \n\n";
 
-        foreach ($methods as $methodName) {
+        foreach ($ownMethodNames as $methodName) {
             $docblockData = $this->getMethodParsedDocBlock($methodName);
 
             $parameterMatrix = $this->getMethodParameterMatrix($methodName);
@@ -204,7 +216,15 @@ class Dirtydoc
             }
         }
 
-        $md .= "Auto generated public API documentation at ".date('Y.m.d.')."\n\n";
+        if ($this->reflection->getParentClass() !== false) {
+            $md .= 'Also see parent class **'.$this->reflection->getParentClass()->getName()."'s** public methods:  \n";
+            $allMethodNames = $this->getPublicMethodList(true);
+            foreach (array_diff($allMethodNames, $ownMethodNames) as $parentMethodName) {
+                $md .= '**'.$parentMethodName.'()** ';
+            }
+        }
+
+//        $md .= "Auto generated public API documentation at ".date('Y.m.d.')."\n\n";
 
         return $md;
     }
