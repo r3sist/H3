@@ -1,58 +1,64 @@
 # Atom
 
-**resist\H3\Atom** 
+***resist\H3\Atom*** 
 
-> H3/Atom - Simple atom feed parser  
+H3/Atom - Simple atom feed parser  
 
 
 ## Public methods 
 
 ### __construct()
 
-**__construct(** *Web* $web **):** 
+```php
+public function __construct(Web $web)
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | *Web* | **$web** |  | Fatfree Framework: Web |
 ### getFeedAsArray()
 
-> Returns feed as array  
+Returns feed as array  
 Forked from Fatfree Framework's \Web\rss() method  
 
 
-**getFeedAsArray(** `string`  $url **):** `array` 
+```php
+public function getFeedAsArray(string $url): array
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$url** |  |  |
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---
 
 # Cache
 
-**resist\H3\Cache** 
+***resist\H3\Cache*** 
 
-> H3/Cache - Simple key-value DB storage for Fatfree Framework powered apps  
+H3/Cache - Simple key-value DB storage for Fatfree Framework powered apps  
 
 
 ## Public methods 
 
 ### __construct()
 
-**__construct(** *DB\SQL* $db **):** 
+```php
+public function __construct(DB\SQL $db)
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | *DB\SQL* | **$db** |  | Fatfree Framework: DB\SQL |
 ### cache()
 
-> Stores string data to given cache-name  
+Stores string data to given cache-name  
 
 
-**cache(** `string`  $cacheName, `string`  $data **):** `void` 
+```php
+public function cache(string $cacheName, string $data): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -60,136 +66,61 @@ Auto generated public API documentation at 2020.08.13.
 | `string`  | **$data** |  |  |
 ### getData()
 
-> Returns data as string for given cache-name  
+Returns data as string for given cache-name  
 
 
-**getData(** `string`  $cacheName **):** `string` 
+```php
+public function getData(string $cacheName): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$cacheName** |  |  |
 ### getModified()
 
-> Returns last modified timestamp for given cache-name  
+Returns last modified timestamp for given cache-name  
 
 
-**getModified(** `string`  $cacheName **):** `int` 
+```php
+public function getModified(string $cacheName): int
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$cacheName** |  |  |
-Auto generated public API documentation at 2020.08.13.
-
-
-
----
-
-# Dirtydoc
-
-**resist\H3\Dirtydoc** 
-
-> H3/Dirtydoc - Quick markdown documentation of class public methods  
-
-
-## Public methods 
-
-### __construct()
-
-**__construct(** `string`  $classNameWithNamespace **):** 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$classNameWithNamespace** |  |  |
-### generateMarkdownFile()
-
-**generateMarkdownFile(** `string`  $fileName **):** `void` 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$fileName** |  |  |
-### getClassMatrix()
-
-**getClassMatrix(**  **):** `array` 
-
-### getClassName()
-
-**getClassName(**  **):** `string` 
-
-### getMarkdownDocumentation()
-
-**getMarkdownDocumentation(**  **):** `string` 
-
-### getMethodParameterMatrix()
-
-**getMethodParameterMatrix(** `string`  $methodName **):** `array` 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$methodName** |  |  |
-### getMethodParsedDocblock()
-
-**getMethodParsedDocblock(** `string`  $methodName **):** `array` 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$methodName** |  |  |
-### getMethodReturnType()
-
-**getMethodReturnType(** `string`  $methodName **):** `string` 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$methodName** |  |  |
-### getNamespace()
-
-**getNamespace(**  **):** `string` 
-
-### getPropertyType()
-
-**getPropertyType(** `string`  $propertyName **):** `string` 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| `string`  | **$propertyName** |  |  |
-### getPublicMethodList()
-
-**getPublicMethodList(**  **):** `array` 
-
-### getPublicPropertyList()
-
-**getPublicPropertyList(**  **):** `array` 
-
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---
 
 # H3
 
-**\H3** 
+***\H3*** 
 
-> Static helpers for Fatfree Framework  
+Static helpers for Fatfree Framework  
 
 
 ## Public methods 
 
 ### ::dump()
 
-> Variable dumper with pre tags  
+Variable dumper with pre tags  
 
 
-**dump(**  $var **):** `void` 
+```php
+public static function dump(@mixed  $var): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | @mixed  | **$var** |  |  |
 ### ::gen()
 
-> Generates alpha-numeric random string  
+Generates alpha-numeric random string  
 
 
-**gen(** `int`  $length **):** `string` 
+```php
+public static function gen(int $length): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -198,7 +129,9 @@ Auto generated public API documentation at 2020.08.13.
 
 **DEPRECATED** Use Json class instead
 
-**getJson(** `string`  $url **):** `array` 
+```php
+public static function getJson(string $url): array
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -207,7 +140,9 @@ Auto generated public API documentation at 2020.08.13.
 
 **DEPRECATED** Probably dead code
 
-**keyDown(** `array`  $array, `int`  $keyNumber **):** `array` 
+```php
+public static function keyDown(array $array, int $keyNumber): array
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -217,7 +152,9 @@ Auto generated public API documentation at 2020.08.13.
 
 **DEPRECATED** Probably dead code
 
-**keyUp(** `array`  $array, `int`  $keyNumber **):** `array` 
+```php
+public static function keyUp(array $array, int $keyNumber): array
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -227,10 +164,12 @@ Auto generated public API documentation at 2020.08.13.
 
 **DEPRECATED** Use Md class instead
 
-> Return converted, multi-line markdown without HTML cleaning  
+Return converted, multi-line markdown without HTML cleaning  
 
 
-**makeMd(** `string`  $string **):** `string` 
+```php
+public static function makeMd(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -239,96 +178,114 @@ Auto generated public API documentation at 2020.08.13.
 
 **DEPRECATED** Use Md class instead
 
-> Returns converted multi-line markdown; HTML in input is cleaned  
+Returns converted multi-line markdown; HTML in input is cleaned  
 
 
-**makeMdLight(** `string`  $string **):** `string` 
+```php
+public static function makeMdLight(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  | Input |
-Returns: `string`  Cleaned and converted output string
+Returns: `string` Cleaned and converted output string
 
 ### ::makeMdStrict()
 
 **DEPRECATED** Use Md class instead
 
-> Returns converted one-line markdown; HTML in input is cleaned; output is filtered by allowed tags  
+Returns converted one-line markdown; HTML in input is cleaned; output is filtered by allowed tags  
 
 
-**makeMdStrict(** `string`  $string **):** `string` 
+```php
+public static function makeMdStrict(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  | Input |
-Returns: `string`  Cleaned and converted output string
+Returns: `string` Cleaned and converted output string
 
 ### ::n0()
 
-> Number formatter - 0 decimal  
+Number formatter - 0 decimal  
 
 
-**n0(** `float`  $number **):** `int` 
+```php
+public static function n0(float $number): int
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `float`  | **$number** |  |  |
 ### ::n1()
 
-> Number formatter - 1 decimal  
+Number formatter - 1 decimal  
 
 
-**n1(** `float`  $number **):** `float` 
+```php
+public static function n1(float $number): float
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `float`  | **$number** |  |  |
 ### ::n2()
 
-> Number formatter - 2 decimals  
+Number formatter - 2 decimals  
 
 
-**n2(** `float`  $number **):** `float` 
+```php
+public static function n2(float $number): float
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `float`  | **$number** |  |  |
 ### ::n3()
 
-> Number formatter - 3 decimals  
+Number formatter - 3 decimals  
 
 
-**n3(** `float`  $number **):** `float` 
+```php
+public static function n3(float $number): float
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `float`  | **$number** |  |  |
 ### ::n4()
 
-> Number formatter - 4 decimals  
+Number formatter - 4 decimals  
 
 
-**n4(** `float`  $number **):** `float` 
+```php
+public static function n4(float $number): float
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `float`  | **$number** |  |  |
 ### ::render()
 
-> Renders template file via Fatfree Framework: Template  
+Renders template file via Fatfree Framework: Template  
 
 
-**render(** `string`  $template **):** `void` 
+```php
+public static function render(string $templateName): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
-| `string`  | **$template** |  | Template file name without '.html'. E.g.: 'layout' or 'subdir/layout' |
+| `string`  | **$templateName** |  |  |
 ### ::shorten()
 
-> Shortens string and extends with mark if original string is longer than given limit  
+Shortens string and extends with mark if original string is longer than given limit  
 
 
-**shorten(** `string`  $string, `int`  $length, [`string`  $extend] **):** `string` 
+```php
+public static function shorten(string $string, int $length, string $extend = "&hellip;"): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -337,32 +294,34 @@ Returns: `string`  Cleaned and converted output string
 | `string`  | **$extend** | "&hellip;" |  |
 ### ::slug()
 
-> Converts string to slug (url-safe string)  
+Converts string to slug (url-safe string)  
 
 
-**slug(**  $string **):** `string` 
+```php
+public static function slug(@float|string  $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | @float,string  | **$string** |  |  |
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---
 
 # Json
 
-**resist\H3\Json** 
+***resist\H3\Json*** 
 
-> Json helpers  
+Json helpers  
 
 
 ## Public methods 
 
 ### __construct()
 
-**__construct(** *Web* $web, *Audit* $audit **):** 
+```php
+public function __construct(Web $web, Audit $audit)
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -370,17 +329,17 @@ Auto generated public API documentation at 2020.08.13.
 | *Audit* | **$audit** |  | Fatfree Framework: Audit |
 ### getJsonFromUrlAsArray()
 
-> API helper  
+API helper  
 
 
-**getJsonFromUrlAsArray(** `string`  $url **):** `array` 
+```php
+public function getJsonFromUrlAsArray(string $url): array
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$url** |  |  |
-Returns: `array`  Empty if null returned from API request
-
-Auto generated public API documentation at 2020.08.13.
+Returns: `array` Empty if null returned from API request
 
 
 
@@ -388,16 +347,18 @@ Auto generated public API documentation at 2020.08.13.
 
 # Logger
 
-**resist\H3\Logger** 
+***resist\H3\Logger*** 
 
-> Simple log-to-DB solution for Fatfree Framework powered apps  
+Simple log-to-DB solution for Fatfree Framework powered apps  
 
 
 ## Public methods 
 
 ### __construct()
 
-**__construct(** *Base* $f3, *DB\SQL* $db **):** 
+```php
+public function __construct(Base $f3, DB\SQL $db)
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -405,10 +366,12 @@ Auto generated public API documentation at 2020.08.13.
 | *DB\SQL* | **$db** |  | Fatfree Framework: DB\SQL |
 ### create()
 
-> Creates entry  
+Creates entry  
 
 
-**create(** `string`  $level, [`string`  $subject], [ $message], [`string`  $table] **):** `void` 
+```php
+public function create(string $level, string $subject = `empty string`, @string|array  $message = `empty string`, string $table = "log"): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -418,7 +381,9 @@ Auto generated public API documentation at 2020.08.13.
 | `string`  | **$table** | "log" |  |
 ### eraseLog()
 
-**eraseLog(** [`string`  $table], [`int`  $time] **):** `void` 
+```php
+public function eraseLog(string $table = "log", int $time): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -426,32 +391,34 @@ Auto generated public API documentation at 2020.08.13.
 | `int`  | **$time** | 0 | Timestamp log entries beiing deleted before |
 ### getMap()
 
-> Returns Fatfree Framework mapper object  
+Returns Fatfree Framework mapper object  
 
 
-**getMap(** [`string`  $table] **):** *DB\SQL\Mapper*
+```php
+public function getMap(string $table = "log"): DB\SQL\Mapper
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$table** | "log" |  |
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---
 
 # Md
 
-**resist\H3\Md** 
+***resist\H3\Md*** 
 
-> Markdown helpers  
+Markdown helpers  
 
 
 ## Public methods 
 
 ### __construct()
 
-**__construct(** *Base* $f3, *Markdown* $md **):** 
+```php
+public function __construct(Base $f3, Markdown $md)
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
@@ -459,190 +426,164 @@ Auto generated public API documentation at 2020.08.13.
 | *Markdown* | **$md** |  |  |
 ### makeMd()
 
-**makeMd(** `string`  $string **):** `string` 
+```php
+public function makeMd(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  |  |
 ### makeOneLine()
 
-**makeOneLine(** `string`  $string **):** `string` 
+```php
+public function makeOneLine(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  |  |
 ### makeWithoutHtml()
 
-**makeWithoutHtml(** `string`  $string **):** `string` 
+```php
+public function makeWithoutHtml(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  |  |
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---
 
 # Tester
 
-**resist\H3\Tester** extends **Test**
+***resist\H3\Tester*** extends ***Test***
 
-> Fatfree Framework Test helper  
+Fatfree Framework Test helper  
 
 
 ## Public methods 
 
-### __construct()
-
-> Class constructor  
-
-
-**__construct(** [ $level] **):** 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| @ | **$level** | 2 | int |
-Returns:  
-
-### expect()
-
-> Evaluate condition and save test result  
-
-
-**expect(**  $cond, [ $text] **):** 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| @ | **$cond** |  | bool |
-| @ | **$text** | "" | string |
-Returns:  object
-
-### message()
-
-> Append message to test results  
-
-
-**message(**  $text **):** 
-
-| Type | Parameter name | Default value | Description |
-| --- | --- | --- | --- |
-| @ | **$text** |  | string |
-Returns:  
-
 ### missing()
 
-**missing(** `string`  $text **):** `void` 
+```php
+public function missing(string $text): void
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$text** |  |  |
-### passed()
-
-> Return FALSE if at least one test case fails  
-
-
-**passed(**  **):** 
-
-Returns:  
-
-### results()
-
-> Return test results  
-
-
-**results(**  **):** 
-
-Returns:  array
-
 ### show()
 
-**show(**  **):** `void` 
+```php
+public function show(): void
+```
 
-Auto generated public API documentation at 2020.08.13.
+### Parent class *(Test)* public methods
 
++ __construct()
++ expect()
++ message()
++ passed()
++ results()
 
 
 ---
 
 # Validator
 
-**resist\H3\Validator** 
+***resist\H3\Validator*** 
 
-> Simple true/false validator  
+Simple true/false validator  
 
 
 ## Public methods 
 
 ### filterSlug()
 
-> Returns slug  
+Returns slug  
 Copyright Fatfree Framework: Web()  
 
 
-**filterSlug(** `string`  $string **):** `string` 
+```php
+public function filterSlug(string $string): string
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  |  |
 ### isAlphanumericList()
 
-**isAlphanumericList(**  $value **):** `bool` 
+```php
+public function isAlphanumericList(@mixed  $value): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | @mixed  | **$value** |  | Can be empty string or contain: a-zA-Z0-9 space , ; . |
 ### isColor()
 
-**isColor(**  $value **):** `bool` 
+```php
+public function isColor(@mixed  $value): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | @mixed  | **$value** |  | Can be HTML named color or #hexa |
 ### isIMDbId()
 
-**isIMDbId(** `string`  $id **):** `bool` 
+```php
+public function isIMDbId(string $id): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$id** |  |  |
 ### isJson()
 
-**isJson(** `string`  $json **):** `bool` 
+```php
+public function isJson(string $json): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$json** |  |  |
 ### isMath()
 
-**isMath(**  $mathExpression **):** `bool` 
+```php
+public function isMath(@mixed  $mathExpression): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | @mixed  | **$mathExpression** |  | Can be empty string or contain: a-zA-Z0-9 space asterisk .,;<>+()=%^-/ |
 ### isSlug()
 
-**isSlug(** `string`  $slug **):** `bool` 
+```php
+public function isSlug(string $slug): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$slug** |  |  |
 ### isUrl200()
 
-**isUrl200(** `string`  $url **):** `bool` 
+```php
+public function isUrl200(string $url): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$url** |  |  |
 ### isVariableName()
 
-**isVariableName(** `string`  $string **):** `bool` 
+```php
+public function isVariableName(string $string): bool
+```
 
 | Type | Parameter name | Default value | Description |
 | --- | --- | --- | --- |
 | `string`  | **$string** |  |  |
-Auto generated public API documentation at 2020.08.13.
-
 
 
 ---

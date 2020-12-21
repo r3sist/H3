@@ -54,16 +54,6 @@ COMMIT;
 
 ---
 
-# Dirtydoc
-
-Quick markdown documentation of class public methods.
-
-**[API Documentation](https://github.com/r3sist/h3/blob/master/API.md#Dirtydoc)**
-
-Usage: see *[dd.php](https://github.com/r3sist/h3/blob/master/dd.php)* in this repository.
-
----
-
 # H3
 
 Static helpers for Fatfree Framework.
