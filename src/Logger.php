@@ -12,7 +12,10 @@ use DB\SQL\Mapper;
 use resist\H3\Exception\InvalidLogTableNameException;
 use JsonException;
 
-/** Simple log-to-DB solution for Fatfree Framework powered apps */
+/**
+ * Simple log-to-DB solution for Fatfree Framework powered apps
+ * @deprecated use resist/logger instead
+ */
 class Logger
 {
     private const TABLE = 'log';
@@ -23,6 +26,7 @@ class Logger
     /**
      * @param Base $f3 Fatfree Framework: Base
      * @param SQL $db Fatfree Framework: DB\SQL
+     * @deprecated
      */
     public function __construct(Base $f3, SQL $db)
     {
@@ -33,6 +37,7 @@ class Logger
     /**
      * Returns Fatfree Framework mapper object
      * @throws InvalidLogTableNameException
+     * @deprecated
      */
     public function getMap(string $table = self::TABLE): Mapper
     {
@@ -48,6 +53,7 @@ class Logger
      * @param string $level Can be "info", "warning", "danger", "success"
      * @param string|array $message Array message is stored in JSON format
      * @throws InvalidLogTableNameException
+     * @deprecated
      */
     public function create(string $level, string $subject = '', $message = '', string $table = self::TABLE): void
     {
@@ -81,6 +87,7 @@ class Logger
     /**
      * @param int $time Timestamp log entries beiing deleted before
      * @throws InvalidLogTableNameException
+     * @deprecated
      */
     public function eraseLog(string $table = self::TABLE, int $time = 0): void
     {
