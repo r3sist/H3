@@ -8,8 +8,7 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "ext-json": "*",
-    "bcosca/fatfree-core": "3.*",
-    "kint-php/kint": "*"
+    "bcosca/fatfree-core": "3.*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
